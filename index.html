@@ -1,0 +1,2167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ian Mutethia — Premium Virtual Assistant & Digital Support Specialist</title>
+    <meta name="description"
+        content="Ian Mutethia — Premium Virtual Assistant, Social Media Manager, and Executive Support Specialist helping businesses stay organized, efficient, and growth-focused.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                        oswald: ['Oswald', 'sans-serif'],
+                        playfair: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        gold: {
+                            50: '#FFF9E6',
+                            100: '#FFF0BF',
+                            200: '#FFE080',
+                            300: '#FFD040',
+                            400: '#D4AF37',
+                            500: '#C8A030',
+                            600: '#A8872A',
+                            700: '#8A6F22',
+                            800: '#6B561B',
+                            900: '#4C3D13',
+                        },
+                        charcoal: {
+                            50: '#2A2A2A',
+                            100: '#222222',
+                            200: '#1A1A1A',
+                            300: '#141414',
+                            400: '#111111',
+                            500: '#0D0D0D',
+                            600: '#0A0A0A',
+                            700: '#080808',
+                            800: '#050505',
+                            900: '#030303',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #C8A030;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #D4AF37;
+        }
+
+        .font-playfair {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .font-oswald {
+            font-family: 'Oswald', sans-serif;
+        }
+
+        /* Gold gradient text */
+        .text-gold-gradient {
+            background: linear-gradient(135deg, #D4AF37 0%, #F5E6CC 40%, #D4AF37 60%, #A8872A 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .text-fade-gradient {
+            background: linear-gradient(to bottom, #FAFAFA 0%, #555555 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .glass {
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+
+        .glass-heavy {
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+        }
+
+        /* Scroll Progress */
+        #scrollProgress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #D4AF37, #F5E6CC, #D4AF37);
+            z-index: 10001;
+            transition: width 0.1s linear;
+        }
+
+        /* Loading Screen */
+        #loader {
+            position: fixed;
+            inset: 0;
+            z-index: 99999;
+            background: #000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+
+        #loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader-ring {
+            width: 60px;
+            height: 60px;
+            border: 2px solid rgba(212, 175, 55, 0.1);
+            border-top: 2px solid #D4AF37;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -200% center;
+            }
+
+            100% {
+                background-position: 200% center;
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes pulse-gold {
+            0% {
+                box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4);
+            }
+
+            70% {
+                box-shadow: 0 0 0 25px rgba(212, 175, 55, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(212, 175, 55, 0);
+            }
+        }
+
+        @keyframes glow-pulse {
+
+            0%,
+            100% {
+                opacity: 0.3;
+            }
+
+            50% {
+                opacity: 0.8;
+            }
+        }
+
+        @keyframes particle-float {
+            0% {
+                transform: translateY(0) translateX(0);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-100vh) translateX(50px);
+                opacity: 0;
+            }
+        }
+
+        @keyframes border-draw {
+            from {
+                stroke-dashoffset: 1000;
+            }
+
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .animate-on-scroll.delay-1 {
+            transition-delay: 0.1s;
+        }
+
+        .animate-on-scroll.delay-2 {
+            transition-delay: 0.2s;
+        }
+
+        .animate-on-scroll.delay-3 {
+            transition-delay: 0.3s;
+        }
+
+        .animate-on-scroll.delay-4 {
+            transition-delay: 0.4s;
+        }
+
+        .animate-on-scroll.delay-5 {
+            transition-delay: 0.5s;
+        }
+
+        .animate-on-scroll.delay-6 {
+            transition-delay: 0.6s;
+        }
+
+        .animate-on-scroll.delay-7 {
+            transition-delay: 0.7s;
+        }
+
+        .marquee-track {
+            animation: marquee 40s linear infinite;
+        }
+
+        /* Portrait glow */
+        .portrait-glow {
+            position: relative;
+        }
+
+        .portrait-glow::before {
+            content: '';
+            position: absolute;
+            inset: -8px;
+            border-radius: 50%;
+            background: conic-gradient(from 0deg, #D4AF37, #F5E6CC, #D4AF37, #A8872A, #D4AF37);
+            animation: spin 8s linear infinite;
+            z-index: -1;
+        }
+
+        .portrait-glow::after {
+            content: '';
+            position: absolute;
+            inset: -20px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+            z-index: -2;
+            animation: glow-pulse 3s ease-in-out infinite;
+        }
+
+        /* Premium card hover */
+        .luxury-card {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .luxury-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.03), transparent);
+            transition: left 0.7s ease;
+        }
+
+        .luxury-card:hover::before {
+            left: 100%;
+        }
+
+        .luxury-card:hover {
+            border-color: rgba(212, 175, 55, 0.3);
+            transform: translateY(-6px);
+            box-shadow: 0 25px 50px -12px rgba(212, 175, 55, 0.08);
+        }
+
+        /* Service card icon hover */
+        .service-icon-wrap {
+            transition: all 0.4s ease;
+        }
+
+        .luxury-card:hover .service-icon-wrap {
+            background: rgba(212, 175, 55, 0.15);
+            transform: scale(1.1);
+        }
+
+        .luxury-card:hover .service-icon-wrap .iconify {
+            color: #D4AF37 !important;
+        }
+
+        /* Button shine */
+        .btn-shine {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-shine::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(transparent, rgba(255, 255, 255, 0.08), transparent);
+            transform: rotate(45deg);
+            transition: all 0.6s ease;
+            opacity: 0;
+        }
+
+        .btn-shine:hover::after {
+            opacity: 1;
+            transform: rotate(45deg) translateY(-50%);
+        }
+
+        /* Nav link */
+        .nav-link-gold {
+            position: relative;
+        }
+
+        .nav-link-gold::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: #D4AF37;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link-gold:hover::after {
+            width: 100%;
+        }
+
+        /* Skill bar */
+        .skill-bar-fill {
+            transition: width 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+            width: 0;
+        }
+
+        .skill-bar-fill.visible {
+            /* width set inline */
+        }
+
+        /* Tool icon hover */
+        .tool-icon-wrap {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .tool-icon-wrap:hover {
+            border-color: rgba(212, 175, 55, 0.4);
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 20px 40px -10px rgba(212, 175, 55, 0.15);
+        }
+
+        .tool-icon-wrap:hover .tool-icon {
+            color: #D4AF37 !important;
+        }
+
+        /* Timeline */
+        .timeline-dot {
+            position: relative;
+        }
+
+        .timeline-dot::before {
+            content: '';
+            position: absolute;
+            left: -29px;
+            top: 6px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #D4AF37;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .timeline-dot::after {
+            content: '';
+            position: absolute;
+            left: -26px;
+            top: 9px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #000;
+        }
+
+        @media (max-width: 767px) {
+            .timeline-dot::before {
+                left: -21px;
+            }
+
+            .timeline-dot::after {
+                left: -18px;
+            }
+        }
+
+        /* Particles */
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: #D4AF37;
+            border-radius: 50%;
+            opacity: 0;
+        }
+
+        /* Toast */
+        .toast-msg {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            padding: 16px 28px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 500;
+            z-index: 10000;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .toast-msg.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* Section divider */
+        .section-divider {
+            width: 60px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Scroll Progress -->
+    <div id="scrollProgress"></div>
+
+    <!-- Loading Screen -->
+    <div id="loader">
+        <div class="loader-ring mb-6"></div>
+        <p class="font-oswald text-sm uppercase tracking-[0.4em] text-gold-400">Loading Experience</p>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast-msg bg-charcoal-300 text-white" id="toast"></div>
+
+    <!-- Particles Container -->
+    <div id="particles" class="fixed inset-0 pointer-events-none z-0 overflow-hidden"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b border-transparent">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#hero" class="font-oswald text-xl md:text-2xl font-600 tracking-tight flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-gold-400 inline-block"
+                    style="animation: pulse-gold 2s infinite;"></span>
+                <span class="text-gold-gradient">IAN</span><span class="text-zinc-500">.</span><span
+                    class="text-white">MUTETHIA</span>
+            </a>
+
+            <div class="hidden lg:flex items-center gap-8">
+                <a href="#about"
+                    class="nav-link-gold text-[11px] font-medium text-zinc-400 hover:text-white transition-colors tracking-[0.2em] uppercase">About</a>
+                <a href="#services"
+                    class="nav-link-gold text-[11px] font-medium text-zinc-400 hover:text-white transition-colors tracking-[0.2em] uppercase">Services</a>
+                <a href="#skills"
+                    class="nav-link-gold text-[11px] font-medium text-zinc-400 hover:text-white transition-colors tracking-[0.2em] uppercase">Skills</a>
+                <a href="#experience"
+                    class="nav-link-gold text-[11px] font-medium text-zinc-400 hover:text-white transition-colors tracking-[0.2em] uppercase">Experience</a>
+                <a href="#testimonials"
+                    class="nav-link-gold text-[11px] font-medium text-zinc-400 hover:text-white transition-colors tracking-[0.2em] uppercase">Testimonials</a>
+                <a href="#contact"
+                    class="nav-link-gold text-[11px] font-medium text-zinc-400 hover:text-white transition-colors tracking-[0.2em] uppercase">Contact</a>
+                <a href="#contact"
+                    class="btn-shine ml-4 bg-gold-400 hover:bg-gold-500 text-black text-[10px] font-bold uppercase tracking-[0.2em] px-6 py-2.5 rounded-full transition-all duration-300">Hire
+                    Me</a>
+            </div>
+
+            <button id="menuBtn" class="lg:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5">
+                <span class="w-6 h-[1.5px] bg-gold-400 transition-all duration-300" id="menuLine1"></span>
+                <span class="w-6 h-[1.5px] bg-white transition-all duration-300" id="menuLine2"></span>
+                <span class="w-4 h-[1.5px] bg-gold-400 transition-all duration-300 ml-auto" id="menuLine3"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu"
+        class="fixed inset-0 z-40 bg-black/97 glass-heavy flex flex-col items-center justify-center gap-6 translate-x-full transition-transform duration-500 lg:hidden">
+        <a href="#about"
+            class="mobile-link font-oswald text-3xl font-400 text-zinc-400 hover:text-gold-400 transition-colors tracking-wider uppercase">About</a>
+        <a href="#services"
+            class="mobile-link font-oswald text-3xl font-400 text-zinc-400 hover:text-gold-400 transition-colors tracking-wider uppercase">Services</a>
+        <a href="#skills"
+            class="mobile-link font-oswald text-3xl font-400 text-zinc-400 hover:text-gold-400 transition-colors tracking-wider uppercase">Skills</a>
+        <a href="#experience"
+            class="mobile-link font-oswald text-3xl font-400 text-zinc-400 hover:text-gold-400 transition-colors tracking-wider uppercase">Experience</a>
+        <a href="#testimonials"
+            class="mobile-link font-oswald text-3xl font-400 text-zinc-400 hover:text-gold-400 transition-colors tracking-wider uppercase">Testimonials</a>
+        <a href="#contact"
+            class="mobile-link font-oswald text-3xl font-400 text-zinc-400 hover:text-gold-400 transition-colors tracking-wider uppercase">Contact</a>
+        <div class="mt-4">
+            <a href="#contact"
+                class="mobile-link btn-shine bg-gold-400 text-black text-xs font-bold uppercase tracking-[0.2em] px-8 py-3 rounded-full">Hire
+                Me</a>
+        </div>
+    </div>
+
+    <!-- ====== HERO SECTION ====== -->
+    <section id="hero" class="relative min-h-screen flex items-center overflow-hidden">
+        <!-- Background -->
+        <div class="absolute inset-0">
+            <img src="https://picsum.photos/seed/luxury-dark-office/1920/1080.jpg" alt=""
+                class="w-full h-full object-cover opacity-20">
+            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/40"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-black via-transparent to-black/60"></div>
+        </div>
+
+        <!-- Decorative grid -->
+        <div class="absolute inset-0 opacity-[0.03]"
+            style="background-size: 60px 60px; background-image: linear-gradient(to right, rgba(212,175,55,0.3) 1px, transparent 1px), linear-gradient(to bottom, rgba(212,175,55,0.3) 1px, transparent 1px);">
+        </div>
+
+        <!-- Gold glow orbs -->
+        <div class="absolute top-1/4 left-[5%] w-72 h-72 bg-gold-400/5 rounded-full blur-[100px]"
+            style="animation: glow-pulse 4s ease-in-out infinite;"></div>
+        <div class="absolute bottom-1/4 right-[10%] w-96 h-96 bg-gold-400/3 rounded-full blur-[120px]"
+            style="animation: glow-pulse 5s ease-in-out 1s infinite;"></div>
+
+        <!-- Content -->
+        <div class="relative z-10 max-w-7xl mx-auto px-6 pt-32 pb-20 w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Left Content -->
+                <div class="lg:col-span-7 order-2 lg:order-1">
+                    <div style="animation: fadeInUp 0.8s ease both;">
+                        <span
+                            class="inline-flex items-center gap-3 text-[10px] font-mono uppercase tracking-[0.4em] text-gold-400 mb-6">
+                            <span class="w-10 h-px bg-gold-400/50"></span>
+                            Premium Virtual Assistant
+                            <span class="w-2 h-2 bg-gold-400 rounded-full"
+                                style="animation: pulse-gold 2s infinite;"></span>
+                        </span>
+                    </div>
+
+                    <h1 class="font-oswald font-500 text-5xl md:text-7xl xl:text-[90px] leading-[0.9] tracking-tighter uppercase mb-6"
+                        style="animation: fadeInUp 0.8s ease 0.15s both;">
+                        <span class="text-white">IAN</span><br>
+                        <span class="text-gold-gradient">MUTETHIA</span>
+                    </h1>
+
+                    <div class="flex items-center gap-3 mb-6" style="animation: fadeInUp 0.8s ease 0.3s both;">
+                        <span class="w-12 h-px bg-gold-400/30"></span>
+                        <p class="font-playfair text-lg md:text-xl italic text-gold-300/80">Virtual Assistant &bull;
+                            Social Media Manager &bull; Executive Support</p>
+                    </div>
+
+                    <p class="text-zinc-400 text-base md:text-lg font-light leading-relaxed max-w-xl mb-10"
+                        style="animation: fadeInUp 0.8s ease 0.45s both;">
+                        I help businesses and executives stay organized, efficient, visible, and growth-focused through
+                        premium administrative and digital support.
+                    </p>
+
+                    <div class="flex flex-wrap items-center gap-4 mb-10"
+                        style="animation: fadeInUp 0.8s ease 0.6s both;">
+                        <a href="#contact"
+                            class="btn-shine bg-gold-400 hover:bg-gold-300 text-black text-[11px] font-bold uppercase tracking-[0.2em] px-8 py-4 rounded-full transition-all duration-300 flex items-center gap-3"
+                            style="box-shadow: 0 0 30px rgba(212,175,55,0.3);">
+                            Hire Me
+                            <span class="iconify" data-icon="lucide:arrow-right" data-width="16"></span>
+                        </a>
+                        <a href="#" onclick="showToast('CV download will begin shortly...'); return false;"
+                            class="btn-shine border border-gold-400/30 hover:border-gold-400/60 text-gold-400 text-[11px] font-bold uppercase tracking-[0.2em] px-8 py-4 rounded-full transition-all duration-300 flex items-center gap-3 hover:bg-gold-400/5">
+                            Download CV
+                            <span class="iconify" data-icon="lucide:download" data-width="16"></span>
+                        </a>
+                    </div>
+
+                    <div class="flex flex-wrap items-center gap-6 text-sm"
+                        style="animation: fadeInUp 0.8s ease 0.75s both;">
+                        <a href="tel:0769293535"
+                            class="flex items-center gap-2 text-zinc-500 hover:text-gold-400 transition-colors">
+                            <span class="iconify" data-icon="lucide:phone" data-width="14"></span>
+                            <span class="font-light">0769 293 535</span>
+                        </a>
+                        <a href="mailto:ianmuliuki1@gmail.com"
+                            class="flex items-center gap-2 text-zinc-500 hover:text-gold-400 transition-colors">
+                            <span class="iconify" data-icon="lucide:mail" data-width="14"></span>
+                            <span class="font-light">ianmuliuki1@gmail.com</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right - Portrait -->
+                <div class="lg:col-span-5 flex justify-center order-1 lg:order-2"
+                    style="animation: scaleIn 1s ease 0.3s both;">
+                    <div class="relative">
+                        <!-- Outer glow ring -->
+                        <div class="absolute -inset-6 rounded-full bg-gradient-to-br from-gold-400/20 via-transparent to-gold-400/10 blur-2xl"
+                            style="animation: glow-pulse 3s ease-in-out infinite;"></div>
+
+                        <!-- Spinning border -->
+                        <div class="absolute -inset-2 rounded-full"
+                            style="background: conic-gradient(from 0deg, #D4AF37, transparent, #D4AF37, transparent, #D4AF37); animation: spin 12s linear infinite; opacity: 0.4;">
+                        </div>
+
+                        <!-- Portrait circle -->
+                        <div
+                            class="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-2 border-gold-400/30">
+                            <img src="/images/ian.png" alt="Ian Mutethia" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent">
+                            </div>
+                        </div>
+
+                        <!-- Status badge -->
+                        <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-charcoal-300 border border-gold-400/30 rounded-full px-5 py-2 glass"
+                            style="animation: fadeInUp 0.8s ease 1s both;">
+                            <div class="flex items-center gap-2">
+                                <div class="w-2 h-2 bg-emerald-500 rounded-full"
+                                    style="animation: pulse-gold 2s infinite;"></div>
+                                <span
+                                    class="text-[10px] font-semibold uppercase tracking-[0.2em] text-gold-300">Available
+                                    for Hire</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+            style="animation: fadeInUp 1s ease 1.2s both;">
+            <span class="text-[9px] uppercase tracking-[0.4em] text-gold-400/50 font-mono">Scroll</span>
+            <div class="w-5 h-8 border border-gold-400/20 rounded-full flex items-start justify-center p-1.5">
+                <div class="w-1 h-2 bg-gold-400/60 rounded-full" style="animation: float 2s ease-in-out infinite;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Marquee -->
+    <div class="relative border-y border-gold-400/10 py-5 overflow-hidden bg-charcoal-600/30">
+        <div class="flex whitespace-nowrap marquee-track">
+            <span class="mx-10 text-[11px] font-oswald uppercase tracking-[0.4em] text-gold-400/40">Virtual
+                Assistance</span>
+            <span class="text-gold-400/20">✦</span>
+            <span class="mx-10 text-[11px] font-oswald uppercase tracking-[0.4em] text-gold-400/40">Social Media
+                Management</span>
+            <span class="text-gold-400/20">✦</span>
+            <span class="mx-10 text-[11px] font-oswald uppercase tracking-[0.4em] text-gold-400/40">Executive
+                Support</span>
+            <span class="text-gold-400/20">✦</span>
+            <span class="mx-10 text-[11px] font-oswald uppercase tracking-[0.4em] text-gold-400/40">Administrative
+                Excellence</span>
+            <span class="text-gold-400/20">✦</span>
+            <span class="mx-10 text-[11px] font-oswald uppercase tracking-[0.4em] text-gold-400/40">Digital
+                Marketing</span>
+            <span class="text-gold-400/20">✦</span>
+            <span class="mx-10 text-[11px] font-oswald uppercase tracking-[0.4em] text-gold-400/40">CRM
+                Management</span>
+            <span class="text-gold-400/20">✦</span>
+            <span class="mx-10 text-[11px] font-oswald uppercase tracking-[0.4em] text-gold-400/40">Customer
+                Service</span>
+            <span class="text-gold-400/20">✦</span>
+            <span class="mx-10 text-[11px] font-oswald uppercase tracking-[0.4em] text-gold-400/40">Virtual
+                Assistance</span>
+            <span class="text-gold-400/20">✦</span>
+            <span class="mx-10 text-[11px] font-oswald uppercase tracking-[0.4em] text-gold-400/40">Social Media
+                Management</span>
+            <span class="text-gold-400/20">✦</span>
+            <span class="mx-10 text-[11px] font-oswald uppercase tracking-[0.4em] text-gold-400/40">Executive
+                Support</span>
+            <span class="text-gold-400/20">✦</span>
+            <span class="mx-10 text-[11px] font-oswald uppercase tracking-[0.4em] text-gold-400/40">Administrative
+                Excellence</span>
+            <span class="text-gold-400/20">✦</span>
+            <span class="mx-10 text-[11px] font-oswald uppercase tracking-[0.4em] text-gold-400/40">Digital
+                Marketing</span>
+            <span class="text-gold-400/20">✦</span>
+            <span class="mx-10 text-[11px] font-oswald uppercase tracking-[0.4em] text-gold-400/40">CRM
+                Management</span>
+            <span class="text-gold-400/20">✦</span>
+            <span class="mx-10 text-[11px] font-oswald uppercase tracking-[0.4em] text-gold-400/40">Customer
+                Service</span>
+            <span class="text-gold-400/20">✦</span>
+        </div>
+    </div>
+
+    <!-- ====== ABOUT SECTION ====== -->
+    <section id="about" class="relative py-28 md:py-40 overflow-hidden">
+        <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-gold-400/3 rounded-full blur-[150px]"></div>
+
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-20 items-center">
+                <!-- Left -->
+                <div>
+                    <div class="animate-on-scroll">
+                        <span class="text-[10px] font-mono uppercase tracking-[0.4em] text-gold-400 mb-4 block">01 —
+                            About Me</span>
+                        <h2
+                            class="font-oswald text-4xl md:text-5xl lg:text-6xl font-500 tracking-tight leading-[1.1] mb-8">
+                            THE PREMIUM<br>
+                            <span class="text-gold-gradient">SUPPORT YOU</span><br>
+                            DESERVE
+                        </h2>
+                    </div>
+
+                    <div class="animate-on-scroll delay-1">
+                        <p class="text-zinc-400 text-lg font-light leading-relaxed mb-6">
+                            With over <span class="text-gold-300 font-medium">6 years of professional experience</span>,
+                            I specialize in providing world-class virtual assistance, executive support, and digital
+                            management services to businesses and high-performing professionals.
+                        </p>
+                        <p class="text-zinc-500 text-base font-light leading-relaxed mb-8">
+                            Highly organized, reliable, and detail-oriented — I bring strong communication skills and
+                            executive support expertise to every partnership. My mission is simple: help you reclaim
+                            your time and focus on what matters most.
+                        </p>
+                    </div>
+
+                    <!-- Trait pills -->
+                    <div class="flex flex-wrap gap-3 mb-10 animate-on-scroll delay-2">
+                        <span
+                            class="border border-gold-400/20 text-gold-400/80 text-[10px] font-semibold uppercase tracking-[0.15em] px-4 py-2 rounded-full bg-gold-400/5">Highly
+                            Organized</span>
+                        <span
+                            class="border border-gold-400/20 text-gold-400/80 text-[10px] font-semibold uppercase tracking-[0.15em] px-4 py-2 rounded-full bg-gold-400/5">Reliable</span>
+                        <span
+                            class="border border-gold-400/20 text-gold-400/80 text-[10px] font-semibold uppercase tracking-[0.15em] px-4 py-2 rounded-full bg-gold-400/5">Detail-Oriented</span>
+                        <span
+                            class="border border-gold-400/20 text-gold-400/80 text-[10px] font-semibold uppercase tracking-[0.15em] px-4 py-2 rounded-full bg-gold-400/5">Strong
+                            Communicator</span>
+                        <span
+                            class="border border-gold-400/20 text-gold-400/80 text-[10px] font-semibold uppercase tracking-[0.15em] px-4 py-2 rounded-full bg-gold-400/5">Executive
+                            Support</span>
+                    </div>
+                </div>
+
+                <!-- Right - Stats Cards -->
+                <div class="grid grid-cols-2 gap-4 md:gap-5">
+                    <div
+                        class="luxury-card bg-charcoal-400/60 border border-white/[0.04] rounded-2xl p-6 md:p-8 text-center animate-on-scroll delay-1">
+                        <div class="font-oswald text-4xl md:text-5xl font-500 tracking-tight text-gold-gradient mb-2">6+
+                        </div>
+                        <p class="text-[10px] uppercase tracking-[0.2em] text-zinc-500 font-medium">Years Experience</p>
+                    </div>
+                    <div
+                        class="luxury-card bg-charcoal-400/60 border border-white/[0.04] rounded-2xl p-6 md:p-8 text-center animate-on-scroll delay-2">
+                        <div class="font-oswald text-4xl md:text-5xl font-500 tracking-tight text-gold-gradient mb-2">
+                            100+</div>
+                        <p class="text-[10px] uppercase tracking-[0.2em] text-zinc-500 font-medium">Projects Managed</p>
+                    </div>
+                    <div
+                        class="luxury-card bg-charcoal-400/60 border border-white/[0.04] rounded-2xl p-6 md:p-8 text-center animate-on-scroll delay-3">
+                        <div class="flex items-center justify-center gap-1 mb-2">
+                            <span class="iconify text-gold-400" data-icon="lucide:star" data-width="20"></span>
+                            <span class="iconify text-gold-400" data-icon="lucide:star" data-width="20"></span>
+                            <span class="iconify text-gold-400" data-icon="lucide:star" data-width="20"></span>
+                            <span class="iconify text-gold-400" data-icon="lucide:star" data-width="20"></span>
+                            <span class="iconify text-gold-400" data-icon="lucide:star" data-width="20"></span>
+                        </div>
+                        <p class="text-[10px] uppercase tracking-[0.2em] text-zinc-500 font-medium">Client Satisfaction
+                        </p>
+                    </div>
+                    <div
+                        class="luxury-card bg-charcoal-400/60 border border-white/[0.04] rounded-2xl p-6 md:p-8 text-center animate-on-scroll delay-4">
+                        <div class="flex items-center justify-center mb-2">
+                            <span class="iconify text-gold-400" data-icon="lucide:award" data-width="36"></span>
+                        </div>
+                        <p class="text-[10px] uppercase tracking-[0.2em] text-zinc-500 font-medium">Admin Excellence</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== SERVICES SECTION ====== -->
+    <section id="services" class="relative py-28 md:py-40 bg-charcoal-700/30">
+        <div class="absolute inset-0 opacity-[0.02]"
+            style="background-size: 50px 50px; background-image: radial-gradient(circle, #D4AF37 1px, transparent 1px);">
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 relative">
+            <div class="text-center mb-20 animate-on-scroll">
+                <span class="text-[10px] font-mono uppercase tracking-[0.4em] text-gold-400 mb-4 block">02 —
+                    Services</span>
+                <h2
+                    class="font-oswald text-4xl md:text-6xl lg:text-7xl font-500 tracking-tight text-gold-gradient mb-6">
+                    WHAT I OFFER
+                </h2>
+                <div class="section-divider mx-auto mb-6"></div>
+                <p class="text-zinc-500 text-base font-light max-w-lg mx-auto">Premium digital and administrative
+                    support services tailored for executives, entrepreneurs, and growing businesses.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+                <!-- Service 1 -->
+                <div
+                    class="luxury-card bg-charcoal-400/40 border border-white/[0.04] rounded-2xl p-7 animate-on-scroll delay-1">
+                    <div
+                        class="service-icon-wrap w-12 h-12 rounded-xl bg-gold-400/10 flex items-center justify-center mb-5">
+                        <span class="iconify text-gold-400/70" data-icon="lucide:share-2" data-width="22"></span>
+                    </div>
+                    <h3 class="font-oswald text-lg font-500 tracking-tight mb-2 uppercase">Social Media Management</h3>
+                    <p class="text-zinc-500 text-sm font-light leading-relaxed mb-4">Strategic content planning,
+                        scheduling, engagement, and analytics across all major platforms.</p>
+                    <ul class="space-y-1.5">
+                        <li class="text-zinc-600 text-xs flex items-center gap-2"><span
+                                class="w-1 h-1 bg-gold-400/50 rounded-full"></span>Content Strategy</li>
+                        <li class="text-zinc-600 text-xs flex items-center gap-2"><span
+                                class="w-1 h-1 bg-gold-400/50 rounded-full"></span>Post Scheduling</li>
+                        <li class="text-zinc-600 text-xs flex items-center gap-2"><span
+                                class="w-1 h-1 bg-gold-400/50 rounded-full"></span>Community Engagement</li>
+                    </ul>
+                </div>
+
+                <!-- Service 2 -->
+                <div
+                    class="luxury-card bg-charcoal-400/40 border border-white/[0.04] rounded-2xl p-7 animate-on-scroll delay-2">
+                    <div
+                        class="service-icon-wrap w-12 h-12 rounded-xl bg-gold-400/10 flex items-center justify-center mb-5">
+                        <span class="iconify text-gold-400/70" data-icon="lucide:monitor" data-width="22"></span>
+                    </div>
+                    <h3 class="font-oswald text-lg font-500 tracking-tight mb-2 uppercase">Virtual Assistance</h3>
+                    <p class="text-zinc-500 text-sm font-light leading-relaxed mb-4">Comprehensive remote support
+                        handling your daily operations with precision and care.</p>
+                    <ul class="space-y-1.5">
+                        <li class="text-zinc-600 text-xs flex items-center gap-2"><span
+                                class="w-1 h-1 bg-gold-400/50 rounded-full"></span>Task Management</li>
+                        <li class="text-zinc-600 text-xs flex items-center gap-2"><span
+                                class="w-1 h-1 bg-gold-400/50 rounded-full"></span>Research & Reporting</li>
+                        <li class="text-zinc-600 text-xs flex items-center gap-2"><span
+                                class="w-1 h-1 bg-gold-400/50 rounded-full"></span>Calendar Coordination</li>
+                    </ul>
+                </div>
+
+                <!-- Service 3 -->
+                <div
+                    class="luxury-card bg-charcoal-400/40 border border-white/[0.04] rounded-2xl p-7 animate-on-scroll delay-3">
+                    <div
+                        class="service-icon-wrap w-12 h-12 rounded-xl bg-gold-400/10 flex items-center justify-center mb-5">
+                        <span class="iconify text-gold-400/70" data-icon="lucide:folder-kanban" data-width="22"></span>
+                    </div>
+                    <h3 class="font-oswald text-lg font-500 tracking-tight mb-2 uppercase">Administrative Support</h3>
+                    <p class="text-zinc-500 text-sm font-light leading-relaxed mb-4">Streamlined admin processes that
+                        keep your business running smoothly and efficiently.</p>
+                    <ul class="space-y-1.5">
+                        <li class="text-zinc-600 text-xs flex items-center gap-2"><span
+                                class="w-1 h-1 bg-gold-400/50 rounded-full"></span>Email Management</li>
+                        <li class="text-zinc-600 text-xs flex items-center gap-2"><span
+                                class="w-1 h-1 bg-gold-400/50 rounded-full"></span>Document Preparation</li>
+                        <li class="text-zinc-600 text-xs flex items-center gap-2"><span
+                                class="w-1 h-1 bg-gold-400/50 rounded-full"></span>Data Organization</li>
+                    </ul>
+                </div>
+
+                <!-- Service 4 -->
+                <div
+                    class="luxury-card bg-charcoal-400/40 border border-white/[0.04] rounded-2xl p-7 animate-on-scroll delay-4">
+                    <div
+                        class="service-icon-wrap w-12 h-12 rounded-xl bg-gold-400/10 flex items-center justify-center mb-5">
+                        <span class="iconify text-gold-400/70" data-icon="lucide:crown" data-width="22"></span>
+                    </div>
+                    <h3 class="font-oswald text-lg font-500 tracking-tight mb-2 uppercase">Executive Assistance</h3>
+                    <p class="text-zinc-500 text-sm font-light leading-relaxed mb-4">White-glove support for C-suite
+                        executives and high-performing entrepreneurs.</p>
+                    <ul class="space-y-1.5">
+                        <li class="text-zinc-600 text-xs flex items-center gap-2"><span
+                                class="w-1 h-1 bg-gold-400/50 rounded-full"></span>Travel Coordination</li>
+                        <li class="text-zinc-600 text-xs flex items-center gap-2"><span
+                                class="w-1 h-1 bg-gold-400/50 rounded-full"></span>Meeting Scheduling</li>
+                        <li class="text-zinc-600 text-xs flex items-center gap-2"><span
+                                class="w-1 h-1 bg-gold-400/50 rounded-full"></span>Strategic Planning</li>
+                    </ul>
+                </div>
+
+                <!-- Service 5 -->
+                <div
+                    class="luxury-card bg-charcoal-400/40 border border-white/[0.04] rounded-2xl p-7 animate-on-scroll delay-1">
+                    <div
+                        class="service-icon-wrap w-12 h-12 rounded-xl bg-gold-400/10 flex items-center justify-center mb-5">
+                        <span class="iconify text-gold-400/70" data-icon="lucide:database" data-width="22"></span>
+                    </div>
+                    <h3 class="font-oswald text-lg font-500 tracking-tight mb-2 uppercase">Data Entry</h3>
+                    <p class="text-zinc-500 text-sm font-light leading-relaxed mb-4">Accurate, efficient data management
+                        and entry services with meticulous attention to detail.</p>
+                    <ul class="space-y-1.5">
+                        <li class="text-zinc-600 text-xs flex items-center gap-2"><span
+                                class="w-1 h-1 bg-gold-400/50 rounded-full"></span>Data Processing</li>
+                        <li class="text-zinc-600 text-xs flex items-center gap-2"><span
+                                class="w-1 h-1 bg-gold-400/50 rounded-full"></span>Quality Assurance</li>
+                        <li class="text-zinc-600 text-xs flex items-center gap-2"><span
+                                class="w-1 h-1 bg-gold-400/50 rounded-full"></span>Database Management</li>
+                    </ul>
+                </div>
+
+                <!-- Service 6 -->
+                <div
+                    class="luxury-card bg-charcoal-400/40 border border-white/[0.04] rounded-2xl p-7 animate-on-scroll delay-2">
+                    <div
+                        class="service-icon-wrap w-12 h-12 rounded-xl bg-gold-400/10 flex items-center justify-center mb-5">
+                        <span class="iconify text-gold-400/70" data-icon="lucide:users" data-width="22"></span>
+                    </div>
+                    <h3 class="font-oswald text-lg font-500 tracking-tight mb-2 uppercase">CRM Management</h3>
+                    <p class="text-zinc-500 text-sm font-light leading-relaxed mb-4">Maintaining and optimizing your
+                        customer relationships with precision and strategy.</p>
+                    <ul class="space-y-1.5">
+                        <li class="text-zinc-600 text-xs flex items-center gap-2"><span
+                                class="w-1 h-1 bg-gold-400/50 rounded-full"></span>Client Database Updates</li>
+                        <li class="text-zinc-600 text-xs flex items-center gap-2"><span
+                                class="w-1 h-1 bg-gold-400/50 rounded-full"></span>Pipeline Tracking</li>
+                        <li class="text-zinc-600 text-xs flex items-center gap-2"><span
+                                class="w-1 h-1 bg-gold-400/50 rounded-full"></span>Follow-up Automation</li>
+                    </ul>
+                </div>
+
+                <!-- Service 7 -->
+                <div
+                    class="luxury-card bg-charcoal-400/40 border border-white/[0.04] rounded-2xl p-7 animate-on-scroll delay-3">
+                    <div
+                        class="service-icon-wrap w-12 h-12 rounded-xl bg-gold-400/10 flex items-center justify-center mb-5">
+                        <span class="iconify text-gold-400/70" data-icon="lucide:megaphone" data-width="22"></span>
+                    </div>
+                    <h3 class="font-oswald text-lg font-500 tracking-tight mb-2 uppercase">Digital Marketing</h3>
+                    <p class="text-zinc-500 text-sm font-light leading-relaxed mb-4">Strategic digital marketing support
+                        to amplify your brand's online presence and reach.</p>
+                    <ul class="space-y-1.5">
+                        <li class="text-zinc-600 text-xs flex items-center gap-2"><span
+                                class="w-1 h-1 bg-gold-400/50 rounded-full"></span>Campaign Management</li>
+                        <li class="text-zinc-600 text-xs flex items-center gap-2"><span
+                                class="w-1 h-1 bg-gold-400/50 rounded-full"></span>Analytics & Reporting</li>
+                        <li class="text-zinc-600 text-xs flex items-center gap-2"><span
+                                class="w-1 h-1 bg-gold-400/50 rounded-full"></span>Brand Strategy</li>
+                    </ul>
+                </div>
+
+                <!-- Service 8 -->
+                <div
+                    class="luxury-card bg-charcoal-400/40 border border-white/[0.04] rounded-2xl p-7 animate-on-scroll delay-4">
+                    <div
+                        class="service-icon-wrap w-12 h-12 rounded-xl bg-gold-400/10 flex items-center justify-center mb-5">
+                        <span class="iconify text-gold-400/70" data-icon="lucide:headset" data-width="22"></span>
+                    </div>
+                    <h3 class="font-oswald text-lg font-500 tracking-tight mb-2 uppercase">Customer Service</h3>
+                    <p class="text-zinc-500 text-sm font-light leading-relaxed mb-4">Professional, empathetic customer
+                        support that protects and elevates your brand.</p>
+                    <ul class="space-y-1.5">
+                        <li class="text-zinc-600 text-xs flex items-center gap-2"><span
+                                class="w-1 h-1 bg-gold-400/50 rounded-full"></span>Inquiry Resolution</li>
+                        <li class="text-zinc-600 text-xs flex items-center gap-2"><span
+                                class="w-1 h-1 bg-gold-400/50 rounded-full"></span>Live Chat Support</li>
+                        <li class="text-zinc-600 text-xs flex items-center gap-2"><span
+                                class="w-1 h-1 bg-gold-400/50 rounded-full"></span>Client Onboarding</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== WHY WORK WITH ME ====== -->
+    <section id="why-me" class="relative py-28 md:py-40 overflow-hidden">
+        <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gold-400/3 rounded-full blur-[130px]"></div>
+
+        <div class="max-w-7xl mx-auto px-6 relative">
+            <div class="text-center mb-20 animate-on-scroll">
+                <span class="text-[10px] font-mono uppercase tracking-[0.4em] text-gold-400 mb-4 block">03 — Why
+                    Me</span>
+                <h2
+                    class="font-oswald text-4xl md:text-6xl lg:text-7xl font-500 tracking-tight text-gold-gradient mb-6">
+                    WHY WORK WITH ME
+                </h2>
+                <div class="section-divider mx-auto mb-6"></div>
+                <p class="text-zinc-500 text-base font-light max-w-lg mx-auto">Choosing the right support partner is
+                    critical. Here's why executives and businesses trust me.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                <!-- Feature 1 -->
+                <div
+                    class="luxury-card bg-charcoal-400/40 border border-white/[0.04] rounded-2xl p-8 animate-on-scroll delay-1">
+                    <div
+                        class="service-icon-wrap w-14 h-14 rounded-2xl bg-gold-400/10 flex items-center justify-center mb-6">
+                        <span class="iconify text-gold-400/70" data-icon="lucide:gem" data-width="26"></span>
+                    </div>
+                    <h3 class="font-oswald text-xl font-500 tracking-tight mb-3 uppercase">Exceptional Service</h3>
+                    <p class="text-zinc-500 text-sm font-light leading-relaxed">I deliver beyond expectations — every
+                        task, every project, every interaction reflects the highest standards of quality and
+                        professionalism.</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div
+                    class="luxury-card bg-charcoal-400/40 border border-white/[0.04] rounded-2xl p-8 animate-on-scroll delay-2">
+                    <div
+                        class="service-icon-wrap w-14 h-14 rounded-2xl bg-gold-400/10 flex items-center justify-center mb-6">
+                        <span class="iconify text-gold-400/70" data-icon="lucide:clock" data-width="26"></span>
+                    </div>
+                    <h3 class="font-oswald text-xl font-500 tracking-tight mb-3 uppercase">Time Saving</h3>
+                    <p class="text-zinc-500 text-sm font-light leading-relaxed">Reclaim hours of your day. I handle the
+                        operational load so you can focus on high-value activities that drive your business forward.</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div
+                    class="luxury-card bg-charcoal-400/40 border border-white/[0.04] rounded-2xl p-8 animate-on-scroll delay-3">
+                    <div
+                        class="service-icon-wrap w-14 h-14 rounded-2xl bg-gold-400/10 flex items-center justify-center mb-6">
+                        <span class="iconify text-gold-400/70" data-icon="lucide:shield-check" data-width="26"></span>
+                    </div>
+                    <h3 class="font-oswald text-xl font-500 tracking-tight mb-3 uppercase">Reliability</h3>
+                    <p class="text-zinc-500 text-sm font-light leading-relaxed">Consistency you can count on. Deadlines
+                        are met, communications are prompt, and nothing falls through the cracks on my watch.</p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div
+                    class="luxury-card bg-charcoal-400/40 border border-white/[0.04] rounded-2xl p-8 animate-on-scroll delay-4">
+                    <div
+                        class="service-icon-wrap w-14 h-14 rounded-2xl bg-gold-400/10 flex items-center justify-center mb-6">
+                        <span class="iconify text-gold-400/70" data-icon="lucide:trending-down" data-width="26"></span>
+                    </div>
+                    <h3 class="font-oswald text-xl font-500 tracking-tight mb-3 uppercase">Cost Efficiency</h3>
+                    <p class="text-zinc-500 text-sm font-light leading-relaxed">Get premium executive-level support
+                        without the overhead of a full-time hire. Flexible, scalable, and budget-friendly.</p>
+                </div>
+
+                <!-- Feature 5 -->
+                <div
+                    class="luxury-card bg-charcoal-400/40 border border-white/[0.04] rounded-2xl p-8 animate-on-scroll delay-5">
+                    <div
+                        class="service-icon-wrap w-14 h-14 rounded-2xl bg-gold-400/10 flex items-center justify-center mb-6">
+                        <span class="iconify text-gold-400/70" data-icon="lucide:message-circle" data-width="26"></span>
+                    </div>
+                    <h3 class="font-oswald text-xl font-500 tracking-tight mb-3 uppercase">Professional Communication
+                    </h3>
+                    <p class="text-zinc-500 text-sm font-light leading-relaxed">Clear, timely, and articulate
+                        communication — ensuring seamless collaboration across time zones and projects.</p>
+                </div>
+
+                <!-- Feature 6 -->
+                <div
+                    class="luxury-card bg-charcoal-400/40 border border-white/[0.04] rounded-2xl p-8 animate-on-scroll delay-6">
+                    <div
+                        class="service-icon-wrap w-14 h-14 rounded-2xl bg-gold-400/10 flex items-center justify-center mb-6">
+                        <span class="iconify text-gold-400/70" data-icon="lucide:lightbulb" data-width="26"></span>
+                    </div>
+                    <h3 class="font-oswald text-xl font-500 tracking-tight mb-3 uppercase">Problem Solving</h3>
+                    <p class="text-zinc-500 text-sm font-light leading-relaxed">Proactive thinking and resourceful
+                        solutions. I anticipate challenges before they arise and resolve them swiftly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== TOOLS & SOFTWARE ====== -->
+    <section id="tools" class="relative py-28 md:py-40 bg-charcoal-700/30">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-20 animate-on-scroll">
+                <span class="text-[10px] font-mono uppercase tracking-[0.4em] text-gold-400 mb-4 block">04 — Tools &
+                    Software</span>
+                <h2
+                    class="font-oswald text-4xl md:text-6xl lg:text-7xl font-500 tracking-tight text-gold-gradient mb-6">
+                    MY TECH STACK
+                </h2>
+                <div class="section-divider mx-auto mb-6"></div>
+                <p class="text-zinc-500 text-base font-light max-w-lg mx-auto">Proficient in industry-leading tools and
+                    platforms to deliver exceptional results.</p>
+            </div>
+
+            <div class="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-7 gap-4">
+                <!-- Tool items -->
+                <div
+                    class="tool-icon-wrap bg-charcoal-400/40 border border-white/[0.04] rounded-2xl p-5 flex flex-col items-center justify-center gap-3 cursor-default">
+                    <span class="iconify tool-icon text-zinc-500 transition-colors duration-300"
+                        data-icon="logos:google-icon" data-width="28"></span>
+                    <span class="text-[9px] uppercase tracking-wider text-zinc-600 font-medium">Google Workspace</span>
+                </div>
+                <div
+                    class="tool-icon-wrap bg-charcoal-400/40 border border-white/[0.04] rounded-2xl p-5 flex flex-col items-center justify-center gap-3 cursor-default">
+                    <span class="iconify tool-icon text-zinc-500 transition-colors duration-300"
+                        data-icon="logos:gmail-icon" data-width="28"></span>
+                    <span class="text-[9px] uppercase tracking-wider text-zinc-600 font-medium">Gmail</span>
+                </div>
+                <div
+                    class="tool-icon-wrap bg-charcoal-400/40 border border-white/[0.04] rounded-2xl p-5 flex flex-col items-center justify-center gap-3 cursor-default">
+                    <span class="iconify tool-icon text-zinc-500 transition-colors duration-300"
+                        data-icon="lucide:calendar" data-width="28"></span>
+                    <span class="text-[9px] uppercase tracking-wider text-zinc-600 font-medium">Google Calendar</span>
+                </div>
+                <div
+                    class="tool-icon-wrap bg-charcoal-400/40 border border-white/[0.04] rounded-2xl p-5 flex flex-col items-center justify-center gap-3 cursor-default">
+                    <span class="iconify tool-icon text-zinc-500 transition-colors duration-300"
+                        data-icon="logos:google-docs" data-width="28"></span>
+                    <span class="text-[9px] uppercase tracking-wider text-zinc-600 font-medium">Google Docs</span>
+                </div>
+                <div
+                    class="tool-icon-wrap bg-charcoal-400/40 border border-white/[0.04] rounded-2xl p-5 flex flex-col items-center justify-center gap-3 cursor-default">
+                    <span class="iconify tool-icon text-zinc-500 transition-colors duration-300"
+                        data-icon="logos:google-sheets" data-width="28"></span>
+                    <span class="text-[9px] uppercase tracking-wider text-zinc-600 font-medium">Google Sheets</span>
+                </div>
+                <div
+                    class="tool-icon-wrap bg-charcoal-400/40 border border-white/[0.04] rounded-2xl p-5 flex flex-col items-center justify-center gap-3 cursor-default">
+                    <span class="iconify tool-icon text-zinc-500 transition-colors duration-300" data-icon="logos:canva"
+                        data-width="28"></span>
+                    <span class="text-[9px] uppercase tracking-wider text-zinc-600 font-medium">Canva</span>
+                </div>
+                <div
+                    class="tool-icon-wrap bg-charcoal-400/40 border border-white/[0.04] rounded-2xl p-5 flex flex-col items-center justify-center gap-3 cursor-default">
+                    <span class="iconify tool-icon text-zinc-500 transition-colors duration-300"
+                        data-icon="logos:trello" data-width="28"></span>
+                    <span class="text-[9px] uppercase tracking-wider text-zinc-600 font-medium">Trello</span>
+                </div>
+                <div
+                    class="tool-icon-wrap bg-charcoal-400/40 border border-white/[0.04] rounded-2xl p-5 flex flex-col items-center justify-center gap-3 cursor-default">
+                    <span class="iconify tool-icon text-zinc-500 transition-colors duration-300"
+                        data-icon="logos:slack-icon" data-width="28"></span>
+                    <span class="text-[9px] uppercase tracking-wider text-zinc-600 font-medium">Slack</span>
+                </div>
+                <div
+                    class="tool-icon-wrap bg-charcoal-400/40 border border-white/[0.04] rounded-2xl p-5 flex flex-col items-center justify-center gap-3 cursor-default">
+                    <span class="iconify tool-icon text-zinc-500 transition-colors duration-300" data-icon="logos:asana"
+                        data-width="28"></span>
+                    <span class="text-[9px] uppercase tracking-wider text-zinc-600 font-medium">Asana</span>
+                </div>
+                <div
+                    class="tool-icon-wrap bg-charcoal-400/40 border border-white/[0.04] rounded-2xl p-5 flex flex-col items-center justify-center gap-3 cursor-default">
+                    <span class="iconify tool-icon text-zinc-500 transition-colors duration-300"
+                        data-icon="lucide:layout-dashboard" data-width="28"></span>
+                    <span class="text-[9px] uppercase tracking-wider text-zinc-600 font-medium">Meta Suite</span>
+                </div>
+                <div
+                    class="tool-icon-wrap bg-charcoal-400/40 border border-white/[0.04] rounded-2xl p-5 flex flex-col items-center justify-center gap-3 cursor-default">
+                    <span class="iconify tool-icon text-zinc-500 transition-colors duration-300"
+                        data-icon="logos:hubspot" data-width="28"></span>
+                    <span class="text-[9px] uppercase tracking-wider text-zinc-600 font-medium">HubSpot</span>
+                </div>
+                <div
+                    class="tool-icon-wrap bg-charcoal-400/40 border border-white/[0.04] rounded-2xl p-5 flex flex-col items-center justify-center gap-3 cursor-default">
+                    <span class="iconify tool-icon text-zinc-500 transition-colors duration-300"
+                        data-icon="logos:notion-icon" data-width="28"></span>
+                    <span class="text-[9px] uppercase tracking-wider text-zinc-600 font-medium">Notion</span>
+                </div>
+                <div
+                    class="tool-icon-wrap bg-charcoal-400/40 border border-white/[0.04] rounded-2xl p-5 flex flex-col items-center justify-center gap-3 cursor-default">
+                    <span class="iconify tool-icon text-zinc-500 transition-colors duration-300"
+                        data-icon="logos:microsoft-icon" data-width="28"></span>
+                    <span class="text-[9px] uppercase tracking-wider text-zinc-600 font-medium">MS Office</span>
+                </div>
+                <div
+                    class="tool-icon-wrap bg-charcoal-400/40 border border-white/[0.04] rounded-2xl p-5 flex flex-col items-center justify-center gap-3 cursor-default">
+                    <span class="iconify tool-icon text-zinc-500 transition-colors duration-300"
+                        data-icon="lucide:scissors" data-width="28"></span>
+                    <span class="text-[9px] uppercase tracking-wider text-zinc-600 font-medium">CapCut</span>
+                </div>
+                <div
+                    class="tool-icon-wrap bg-charcoal-400/40 border border-white/[0.04] rounded-2xl p-5 flex flex-col items-center justify-center gap-3 cursor-default">
+                    <span class="iconify tool-icon text-zinc-500 transition-colors duration-300"
+                        data-icon="lucide:database" data-width="28"></span>
+                    <span class="text-[9px] uppercase tracking-wider text-zinc-600 font-medium">CRM Platforms</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== SKILLS SECTION ====== -->
+    <section id="skills" class="relative py-28 md:py-40 overflow-hidden">
+        <div
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gold-400/2 rounded-full blur-[150px]">
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 relative">
+            <div class="text-center mb-20 animate-on-scroll">
+                <span class="text-[10px] font-mono uppercase tracking-[0.4em] text-gold-400 mb-4 block">05 —
+                    Skills</span>
+                <h2
+                    class="font-oswald text-4xl md:text-6xl lg:text-7xl font-500 tracking-tight text-gold-gradient mb-6">
+                    EXPERTISE
+                </h2>
+                <div class="section-divider mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Administrative Skills -->
+                <div
+                    class="luxury-card bg-charcoal-400/40 border border-white/[0.04] rounded-2xl p-8 md:p-10 animate-on-scroll delay-1">
+                    <div class="flex items-center gap-3 mb-8">
+                        <div class="w-10 h-10 rounded-xl bg-gold-400/10 flex items-center justify-center">
+                            <span class="iconify text-gold-400" data-icon="lucide:briefcase" data-width="20"></span>
+                        </div>
+                        <h3 class="font-oswald text-xl font-500 tracking-tight uppercase">Administrative &
+                            Organizational</h3>
+                    </div>
+
+                    <div class="space-y-5">
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-1.5"><span
+                                    class="text-sm text-zinc-300 font-light">Calendar Management</span><span
+                                    class="text-xs text-gold-400 font-mono">95%</span></div>
+                            <div class="w-full h-1.5 bg-charcoal-100 rounded-full overflow-hidden">
+                                <div class="skill-bar-fill h-full bg-gradient-to-r from-gold-400 to-gold-300 rounded-full"
+                                    data-width="95%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-1.5"><span
+                                    class="text-sm text-zinc-300 font-light">Email Management</span><span
+                                    class="text-xs text-gold-400 font-mono">97%</span></div>
+                            <div class="w-full h-1.5 bg-charcoal-100 rounded-full overflow-hidden">
+                                <div class="skill-bar-fill h-full bg-gradient-to-r from-gold-400 to-gold-300 rounded-full"
+                                    data-width="97%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-1.5"><span
+                                    class="text-sm text-zinc-300 font-light">Travel Coordination</span><span
+                                    class="text-xs text-gold-400 font-mono">90%</span></div>
+                            <div class="w-full h-1.5 bg-charcoal-100 rounded-full overflow-hidden">
+                                <div class="skill-bar-fill h-full bg-gradient-to-r from-gold-400 to-gold-300 rounded-full"
+                                    data-width="90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-1.5"><span class="text-sm text-zinc-300 font-light">File
+                                    Management</span><span class="text-xs text-gold-400 font-mono">92%</span></div>
+                            <div class="w-full h-1.5 bg-charcoal-100 rounded-full overflow-hidden">
+                                <div class="skill-bar-fill h-full bg-gradient-to-r from-gold-400 to-gold-300 rounded-full"
+                                    data-width="92%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-1.5"><span class="text-sm text-zinc-300 font-light">Data
+                                    Entry</span><span class="text-xs text-gold-400 font-mono">94%</span></div>
+                            <div class="w-full h-1.5 bg-charcoal-100 rounded-full overflow-hidden">
+                                <div class="skill-bar-fill h-full bg-gradient-to-r from-gold-400 to-gold-300 rounded-full"
+                                    data-width="94%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-1.5"><span
+                                    class="text-sm text-zinc-300 font-light">Project Management</span><span
+                                    class="text-xs text-gold-400 font-mono">91%</span></div>
+                            <div class="w-full h-1.5 bg-charcoal-100 rounded-full overflow-hidden">
+                                <div class="skill-bar-fill h-full bg-gradient-to-r from-gold-400 to-gold-300 rounded-full"
+                                    data-width="91%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-1.5"><span
+                                    class="text-sm text-zinc-300 font-light">Customer Support</span><span
+                                    class="text-xs text-gold-400 font-mono">93%</span></div>
+                            <div class="w-full h-1.5 bg-charcoal-100 rounded-full overflow-hidden">
+                                <div class="skill-bar-fill h-full bg-gradient-to-r from-gold-400 to-gold-300 rounded-full"
+                                    data-width="93%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-1.5"><span class="text-sm text-zinc-300 font-light">Time
+                                    Management</span><span class="text-xs text-gold-400 font-mono">96%</span></div>
+                            <div class="w-full h-1.5 bg-charcoal-100 rounded-full overflow-hidden">
+                                <div class="skill-bar-fill h-full bg-gradient-to-r from-gold-400 to-gold-300 rounded-full"
+                                    data-width="96%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-1.5"><span
+                                    class="text-sm text-zinc-300 font-light">Problem Solving</span><span
+                                    class="text-xs text-gold-400 font-mono">90%</span></div>
+                            <div class="w-full h-1.5 bg-charcoal-100 rounded-full overflow-hidden">
+                                <div class="skill-bar-fill h-full bg-gradient-to-r from-gold-400 to-gold-300 rounded-full"
+                                    data-width="90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-1.5"><span
+                                    class="text-sm text-zinc-300 font-light">Strategic Planning</span><span
+                                    class="text-xs text-gold-400 font-mono">88%</span></div>
+                            <div class="w-full h-1.5 bg-charcoal-100 rounded-full overflow-hidden">
+                                <div class="skill-bar-fill h-full bg-gradient-to-r from-gold-400 to-gold-300 rounded-full"
+                                    data-width="88%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Technical Skills -->
+                <div
+                    class="luxury-card bg-charcoal-400/40 border border-white/[0.04] rounded-2xl p-8 md:p-10 animate-on-scroll delay-2">
+                    <div class="flex items-center gap-3 mb-8">
+                        <div class="w-10 h-10 rounded-xl bg-gold-400/10 flex items-center justify-center">
+                            <span class="iconify text-gold-400" data-icon="lucide:cpu" data-width="20"></span>
+                        </div>
+                        <h3 class="font-oswald text-xl font-500 tracking-tight uppercase">Technical & Communication</h3>
+                    </div>
+
+                    <div class="space-y-5">
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-1.5"><span class="text-sm text-zinc-300 font-light">CRM
+                                    Systems</span><span class="text-xs text-gold-400 font-mono">92%</span></div>
+                            <div class="w-full h-1.5 bg-charcoal-100 rounded-full overflow-hidden">
+                                <div class="skill-bar-fill h-full bg-gradient-to-r from-gold-400 to-gold-300 rounded-full"
+                                    data-width="92%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-1.5"><span
+                                    class="text-sm text-zinc-300 font-light">Social Media Management</span><span
+                                    class="text-xs text-gold-400 font-mono">95%</span></div>
+                            <div class="w-full h-1.5 bg-charcoal-100 rounded-full overflow-hidden">
+                                <div class="skill-bar-fill h-full bg-gradient-to-r from-gold-400 to-gold-300 rounded-full"
+                                    data-width="95%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-1.5"><span
+                                    class="text-sm text-zinc-300 font-light">Digital Marketing</span><span
+                                    class="text-xs text-gold-400 font-mono">88%</span></div>
+                            <div class="w-full h-1.5 bg-charcoal-100 rounded-full overflow-hidden">
+                                <div class="skill-bar-fill h-full bg-gradient-to-r from-gold-400 to-gold-300 rounded-full"
+                                    data-width="88%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-1.5"><span
+                                    class="text-sm text-zinc-300 font-light">Writing & Editing</span><span
+                                    class="text-xs text-gold-400 font-mono">91%</span></div>
+                            <div class="w-full h-1.5 bg-charcoal-100 rounded-full overflow-hidden">
+                                <div class="skill-bar-fill h-full bg-gradient-to-r from-gold-400 to-gold-300 rounded-full"
+                                    data-width="91%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-1.5"><span
+                                    class="text-sm text-zinc-300 font-light">Leadership</span><span
+                                    class="text-xs text-gold-400 font-mono">87%</span></div>
+                            <div class="w-full h-1.5 bg-charcoal-100 rounded-full overflow-hidden">
+                                <div class="skill-bar-fill h-full bg-gradient-to-r from-gold-400 to-gold-300 rounded-full"
+                                    data-width="87%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-1.5"><span class="text-sm text-zinc-300 font-light">Team
+                                    Collaboration</span><span class="text-xs text-gold-400 font-mono">93%</span></div>
+                            <div class="w-full h-1.5 bg-charcoal-100 rounded-full overflow-hidden">
+                                <div class="skill-bar-fill h-full bg-gradient-to-r from-gold-400 to-gold-300 rounded-full"
+                                    data-width="93%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-1.5"><span
+                                    class="text-sm text-zinc-300 font-light">Automation Tools</span><span
+                                    class="text-xs text-gold-400 font-mono">86%</span></div>
+                            <div class="w-full h-1.5 bg-charcoal-100 rounded-full overflow-hidden">
+                                <div class="skill-bar-fill h-full bg-gradient-to-r from-gold-400 to-gold-300 rounded-full"
+                                    data-width="86%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-1.5"><span
+                                    class="text-sm text-zinc-300 font-light">Graphic Design (Canva)</span><span
+                                    class="text-xs text-gold-400 font-mono">89%</span></div>
+                            <div class="w-full h-1.5 bg-charcoal-100 rounded-full overflow-hidden">
+                                <div class="skill-bar-fill h-full bg-gradient-to-r from-gold-400 to-gold-300 rounded-full"
+                                    data-width="89%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-1.5"><span
+                                    class="text-sm text-zinc-300 font-light">Video Editing</span><span
+                                    class="text-xs text-gold-400 font-mono">82%</span></div>
+                            <div class="w-full h-1.5 bg-charcoal-100 rounded-full overflow-hidden">
+                                <div class="skill-bar-fill h-full bg-gradient-to-r from-gold-400 to-gold-300 rounded-full"
+                                    data-width="82%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== EXPERIENCE / EDUCATION ====== -->
+    <section id="experience" class="relative py-28 md:py-40 bg-charcoal-700/30">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-20 animate-on-scroll">
+                <span class="text-[10px] font-mono uppercase tracking-[0.4em] text-gold-400 mb-4 block">06 — Experience
+                    & Education</span>
+                <h2
+                    class="font-oswald text-4xl md:text-6xl lg:text-7xl font-500 tracking-tight text-gold-gradient mb-6">
+                    MY JOURNEY
+                </h2>
+                <div class="section-divider mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+                <!-- Experience -->
+                <div>
+                    <div class="flex items-center gap-3 mb-10 animate-on-scroll">
+                        <div class="w-10 h-10 rounded-xl bg-gold-400/10 flex items-center justify-center">
+                            <span class="iconify text-gold-400" data-icon="lucide:briefcase" data-width="20"></span>
+                        </div>
+                        <h3 class="font-oswald text-2xl font-500 tracking-tight uppercase">Professional Experience</h3>
+                    </div>
+
+                    <div class="relative border-l border-gold-400/20 pl-8 ml-3 space-y-10">
+                        <!-- Exp 1 -->
+                        <div class="timeline-dot animate-on-scroll delay-1">
+                            <span class="text-[10px] font-mono uppercase tracking-[0.3em] text-gold-400">2021 —
+                                Present</span>
+                            <h4 class="font-oswald text-xl font-500 tracking-tight mt-1">Senior Virtual Assistant &
+                                Social Media Manager</h4>
+                            <p class="text-zinc-500 text-sm mt-1">Freelance / Independent</p>
+                            <p class="text-zinc-400 text-sm font-light leading-relaxed mt-3">Managing comprehensive
+                                virtual assistance services for multiple clients. Handling social media strategy,
+                                executive support, CRM management, and administrative operations. Delivered 60+
+                                successful projects with exceptional client satisfaction.</p>
+                        </div>
+
+                        <!-- Exp 2 -->
+                        <div class="timeline-dot animate-on-scroll delay-2">
+                            <span class="text-[10px] font-mono uppercase tracking-[0.3em] text-zinc-600">2019 —
+                                2021</span>
+                            <h4 class="font-oswald text-xl font-500 tracking-tight mt-1">Administrative Support
+                                Specialist</h4>
+                            <p class="text-zinc-500 text-sm mt-1">Corporate Environment</p>
+                            <p class="text-zinc-400 text-sm font-light leading-relaxed mt-3">Provided high-level
+                                administrative support including calendar management, travel coordination, data entry,
+                                and document preparation. Streamlined office processes resulting in improved operational
+                                efficiency.</p>
+                        </div>
+
+                        <!-- Exp 3 -->
+                        <div class="timeline-dot animate-on-scroll delay-3">
+                            <span class="text-[10px] font-mono uppercase tracking-[0.3em] text-zinc-600">2018 —
+                                2019</span>
+                            <h4 class="font-oswald text-xl font-500 tracking-tight mt-1">Digital Marketing Assistant
+                            </h4>
+                            <p class="text-zinc-500 text-sm mt-1">Agency / Contract</p>
+                            <p class="text-zinc-400 text-sm font-light leading-relaxed mt-3">Supported digital marketing
+                                campaigns, social media content creation, and customer engagement strategies. Gained
+                                expertise in analytics, reporting, and marketing automation platforms.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Education & Certifications -->
+                <div>
+                    <div class="flex items-center gap-3 mb-10 animate-on-scroll">
+                        <div class="w-10 h-10 rounded-xl bg-gold-400/10 flex items-center justify-center">
+                            <span class="iconify text-gold-400" data-icon="lucide:graduation-cap"
+                                data-width="20"></span>
+                        </div>
+                        <h3 class="font-oswald text-2xl font-500 tracking-tight uppercase">Education & Certifications
+                        </h3>
+                    </div>
+
+                    <div class="relative border-l border-gold-400/20 pl-8 ml-3 space-y-10">
+                        <!-- Cert 1 -->
+                        <div class="timeline-dot animate-on-scroll delay-1">
+                            <span
+                                class="inline-flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-[0.2em] text-gold-400 bg-gold-400/10 px-3 py-1 rounded-full mb-2">
+                                <span class="iconify" data-icon="lucide:award" data-width="12"></span>
+                                Certification
+                            </span>
+                            <h4 class="font-oswald text-xl font-500 tracking-tight mt-1">Foundations of Project
+                                Management</h4>
+                            <p class="text-zinc-400 text-sm font-light leading-relaxed mt-3">Comprehensive training in
+                                project management methodologies, agile frameworks, and strategic project delivery.</p>
+                        </div>
+
+                        <!-- Cert 2 -->
+                        <div class="timeline-dot animate-on-scroll delay-2">
+                            <span
+                                class="inline-flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-[0.2em] text-gold-400 bg-gold-400/10 px-3 py-1 rounded-full mb-2">
+                                <span class="iconify" data-icon="lucide:award" data-width="12"></span>
+                                Certification
+                            </span>
+                            <h4 class="font-oswald text-xl font-500 tracking-tight mt-1">Digital Marketing Certification
+                            </h4>
+                            <p class="text-zinc-400 text-sm font-light leading-relaxed mt-3">Advanced digital marketing
+                                strategies including SEO, content marketing, social media advertising, and analytics.
+                            </p>
+                        </div>
+
+                        <!-- Cert 3 -->
+                        <div class="timeline-dot animate-on-scroll delay-3">
+                            <span
+                                class="inline-flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-[0.2em] text-gold-400 bg-gold-400/10 px-3 py-1 rounded-full mb-2">
+                                <span class="iconify" data-icon="lucide:award" data-width="12"></span>
+                                Certification
+                            </span>
+                            <h4 class="font-oswald text-xl font-500 tracking-tight mt-1">Virtual Assistant Professional
+                                Training</h4>
+                            <p class="text-zinc-400 text-sm font-light leading-relaxed mt-3">Specialized training in
+                                remote work best practices, executive assistance, and virtual team collaboration.</p>
+                        </div>
+
+                        <!-- Education -->
+                        <div class="timeline-dot animate-on-scroll delay-4">
+                            <span
+                                class="inline-flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-[0.2em] text-zinc-500 bg-zinc-800/50 px-3 py-1 rounded-full mb-2">
+                                <span class="iconify" data-icon="lucide:book-open" data-width="12"></span>
+                                Education
+                            </span>
+                            <h4 class="font-oswald text-xl font-500 tracking-tight mt-1">Professional Development</h4>
+                            <p class="text-zinc-400 text-sm font-light leading-relaxed mt-3">Continuous learning through
+                                industry courses, workshops, and professional development programs in business
+                                administration and digital technologies.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== TESTIMONIALS ====== -->
+    <section id="testimonials" class="relative py-28 md:py-40 overflow-hidden">
+        <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-gold-400/3 rounded-full blur-[150px]"></div>
+
+        <div class="max-w-7xl mx-auto px-6 relative">
+            <div class="text-center mb-20 animate-on-scroll">
+                <span class="text-[10px] font-mono uppercase tracking-[0.4em] text-gold-400 mb-4 block">07 —
+                    Testimonials</span>
+                <h2
+                    class="font-oswald text-4xl md:text-6xl lg:text-7xl font-500 tracking-tight text-gold-gradient mb-6">
+                    CLIENT VOICES
+                </h2>
+                <div class="section-divider mx-auto mb-6"></div>
+                <p class="text-zinc-500 text-base font-light max-w-lg mx-auto">What executives and business owners say
+                    about working with me.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Testimonial 1 -->
+                <div
+                    class="luxury-card bg-charcoal-400/40 border border-white/[0.04] rounded-2xl p-8 animate-on-scroll delay-1">
+                    <span class="iconify text-gold-400/20 mb-4" data-icon="lucide:quote" data-width="36"></span>
+                    <p class="text-zinc-400 text-sm font-light leading-relaxed mb-8">"Ian transformed the way I run my
+                        business. His organizational skills and proactive approach freed up 15+ hours of my week. The
+                        professionalism is unmatched — he anticipates needs before I even voice them."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-gold-400/10 flex items-center justify-center">
+                            <span class="font-oswald text-sm text-gold-400 font-600">JR</span>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium text-white">James Richardson</p>
+                            <p class="text-xs text-zinc-600">CEO, Richardson Ventures</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-1 mt-4">
+                        <span class="iconify text-gold-400" data-icon="lucide:star" data-width="12"></span>
+                        <span class="iconify text-gold-400" data-icon="lucide:star" data-width="12"></span>
+                        <span class="iconify text-gold-400" data-icon="lucide:star" data-width="12"></span>
+                        <span class="iconify text-gold-400" data-icon="lucide:star" data-width="12"></span>
+                        <span class="iconify text-gold-400" data-icon="lucide:star" data-width="12"></span>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div
+                    class="luxury-card bg-charcoal-400/40 border border-white/[0.04] rounded-2xl p-8 animate-on-scroll delay-2">
+                    <span class="iconify text-gold-400/20 mb-4" data-icon="lucide:quote" data-width="36"></span>
+                    <p class="text-zinc-400 text-sm font-light leading-relaxed mb-8">"Our social media presence grew by
+                        200% in just three months under Ian's management. He doesn't just post — he strategizes, creates
+                        compelling content, and builds genuine community engagement."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-gold-400/10 flex items-center justify-center">
+                            <span class="font-oswald text-sm text-gold-400 font-600">SM</span>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium text-white">Sarah Mitchell</p>
+                            <p class="text-xs text-zinc-600">Founder, Bloom Studio</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-1 mt-4">
+                        <span class="iconify text-gold-400" data-icon="lucide:star" data-width="12"></span>
+                        <span class="iconify text-gold-400" data-icon="lucide:star" data-width="12"></span>
+                        <span class="iconify text-gold-400" data-icon="lucide:star" data-width="12"></span>
+                        <span class="iconify text-gold-400" data-icon="lucide:star" data-width="12"></span>
+                        <span class="iconify text-gold-400" data-icon="lucide:star" data-width="12"></span>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div
+                    class="luxury-card bg-charcoal-400/40 border border-white/[0.04] rounded-2xl p-8 animate-on-scroll delay-3">
+                    <span class="iconify text-gold-400/20 mb-4" data-icon="lucide:quote" data-width="36"></span>
+                    <p class="text-zinc-400 text-sm font-light leading-relaxed mb-8">"Reliable, detail-oriented, and
+                        exceptionally professional. Ian handled our CRM migration and customer support operations
+                        flawlessly. He's the VA you hire when you can't afford mistakes."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-gold-400/10 flex items-center justify-center">
+                            <span class="font-oswald text-sm text-gold-400 font-600">DK</span>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium text-white">David Kimura</p>
+                            <p class="text-xs text-zinc-600">COO, TechScale Inc.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-1 mt-4">
+                        <span class="iconify text-gold-400" data-icon="lucide:star" data-width="12"></span>
+                        <span class="iconify text-gold-400" data-icon="lucide:star" data-width="12"></span>
+                        <span class="iconify text-gold-400" data-icon="lucide:star" data-width="12"></span>
+                        <span class="iconify text-gold-400" data-icon="lucide:star" data-width="12"></span>
+                        <span class="iconify text-gold-400" data-icon="lucide:star" data-width="12"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== CONTACT SECTION ====== -->
+    <section id="contact" class="relative py-28 md:py-40 bg-charcoal-700/30 overflow-hidden">
+        <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-gold-400/3 rounded-full blur-[150px]"></div>
+        <div class="absolute top-0 left-0 w-[300px] h-[300px] bg-gold-400/2 rounded-full blur-[100px]"></div>
+
+        <div class="max-w-7xl mx-auto px-6 relative">
+            <div class="text-center mb-20 animate-on-scroll">
+                <span class="text-[10px] font-mono uppercase tracking-[0.4em] text-gold-400 mb-4 block">08 —
+                    Contact</span>
+                <h2 class="font-oswald text-4xl md:text-6xl lg:text-7xl font-500 tracking-tight mb-6">
+                    <span class="text-gold-gradient">LET'S WORK</span><br>
+                    <span class="text-fade-gradient">TOGETHER</span>
+                </h2>
+                <div class="section-divider mx-auto mb-6"></div>
+                <p class="text-zinc-500 text-base font-light max-w-lg mx-auto">Ready to elevate your productivity? Let's
+                    discuss how I can support your business.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-5 gap-10">
+                <!-- Contact Info -->
+                <div class="lg:col-span-2 space-y-6 animate-on-scroll">
+                    <a href="mailto:ianmuliuki1@gmail.com"
+                        class="luxury-card bg-charcoal-400/40 border border-white/[0.04] rounded-2xl p-6 flex items-center gap-4 block">
+                        <div class="w-12 h-12 rounded-xl bg-gold-400/10 flex items-center justify-center flex-shrink-0">
+                            <span class="iconify text-gold-400" data-icon="lucide:mail" data-width="22"></span>
+                        </div>
+                        <div>
+                            <p class="text-[10px] font-mono uppercase tracking-[0.2em] text-zinc-600 mb-1">Email</p>
+                            <p class="text-sm text-zinc-300 font-light">ianmuliuki1@gmail.com</p>
+                        </div>
+                    </a>
+
+                    <a href="tel:0769293535"
+                        class="luxury-card bg-charcoal-400/40 border border-white/[0.04] rounded-2xl p-6 flex items-center gap-4 block">
+                        <div class="w-12 h-12 rounded-xl bg-gold-400/10 flex items-center justify-center flex-shrink-0">
+                            <span class="iconify text-gold-400" data-icon="lucide:phone" data-width="22"></span>
+                        </div>
+                        <div>
+                            <p class="text-[10px] font-mono uppercase tracking-[0.2em] text-zinc-600 mb-1">Phone</p>
+                            <p class="text-sm text-zinc-300 font-light">0769 293 535</p>
+                        </div>
+                    </a>
+
+                    <a href="https://wa.me/254769293535" target="_blank"
+                        class="luxury-card bg-charcoal-400/40 border border-white/[0.04] rounded-2xl p-6 flex items-center gap-4 block">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center flex-shrink-0">
+                            <span class="iconify text-emerald-500" data-icon="lucide:message-circle"
+                                data-width="22"></span>
+                        </div>
+                        <div>
+                            <p class="text-[10px] font-mono uppercase tracking-[0.2em] text-zinc-600 mb-1">WhatsApp</p>
+                            <p class="text-sm text-zinc-300 font-light">Chat on WhatsApp</p>
+                        </div>
+                    </a>
+
+                    <a href="#"
+                        class="luxury-card bg-charcoal-400/40 border border-white/[0.04] rounded-2xl p-6 flex items-center gap-4 block">
+                        <div class="w-12 h-12 rounded-xl bg-gold-400/10 flex items-center justify-center flex-shrink-0">
+                            <span class="iconify text-gold-400" data-icon="lucide:map-pin" data-width="22"></span>
+                        </div>
+                        <div>
+                            <p class="text-[10px] font-mono uppercase tracking-[0.2em] text-zinc-600 mb-1">Location</p>
+                            <p class="text-sm text-zinc-300 font-light">Kenya — Available Globally</p>
+                        </div>
+                    </a>
+
+                    <!-- Social links -->
+                    <div class="flex items-center gap-3 pt-4">
+                        <a href="#"
+                            class="w-10 h-10 rounded-full border border-gold-400/20 flex items-center justify-center text-zinc-500 hover:text-gold-400 hover:border-gold-400/50 transition-all duration-300">
+                            <span class="iconify" data-icon="lucide:linkedin" data-width="16"></span>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full border border-gold-400/20 flex items-center justify-center text-zinc-500 hover:text-gold-400 hover:border-gold-400/50 transition-all duration-300">
+                            <span class="iconify" data-icon="lucide:twitter" data-width="16"></span>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full border border-gold-400/20 flex items-center justify-center text-zinc-500 hover:text-gold-400 hover:border-gold-400/50 transition-all duration-300">
+                            <span class="iconify" data-icon="lucide:instagram" data-width="16"></span>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full border border-gold-400/20 flex items-center justify-center text-zinc-500 hover:text-gold-400 hover:border-gold-400/50 transition-all duration-300">
+                            <span class="iconify" data-icon="lucide:facebook" data-width="16"></span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="lg:col-span-3 animate-on-scroll delay-2">
+                    <form id="contactForm"
+                        class="luxury-card bg-charcoal-400/40 border border-white/[0.04] rounded-2xl p-8 md:p-10 space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label
+                                    class="text-[10px] font-mono uppercase tracking-[0.2em] text-zinc-600 mb-2 block">Your
+                                    Name</label>
+                                <input type="text" id="nameInput" placeholder="Full Name"
+                                    class="w-full bg-charcoal-200/50 border border-white/[0.04] rounded-xl px-4 py-3.5 text-sm text-white placeholder-zinc-700 focus:outline-none focus:border-gold-400/30 transition-colors">
+                            </div>
+                            <div>
+                                <label
+                                    class="text-[10px] font-mono uppercase tracking-[0.2em] text-zinc-600 mb-2 block">Your
+                                    Email</label>
+                                <input type="email" id="emailInput" placeholder="email@example.com"
+                                    class="w-full bg-charcoal-200/50 border border-white/[0.04] rounded-xl px-4 py-3.5 text-sm text-white placeholder-zinc-700 focus:outline-none focus:border-gold-400/30 transition-colors">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label
+                                class="text-[10px] font-mono uppercase tracking-[0.2em] text-zinc-600 mb-2 block">Service
+                                Needed</label>
+                            <select id="serviceInput"
+                                class="w-full bg-charcoal-200/50 border border-white/[0.04] rounded-xl px-4 py-3.5 text-sm text-zinc-500 focus:outline-none focus:border-gold-400/30 transition-colors appearance-none cursor-pointer">
+                                <option value="">Select a service...</option>
+                                <option value="va">Virtual Assistance</option>
+                                <option value="smm">Social Media Management</option>
+                                <option value="admin">Administrative Support</option>
+                                <option value="exec">Executive Assistance</option>
+                                <option value="data">Data Entry</option>
+                                <option value="crm">CRM Management</option>
+                                <option value="dm">Digital Marketing</option>
+                                <option value="cs">Customer Service</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label
+                                class="text-[10px] font-mono uppercase tracking-[0.2em] text-zinc-600 mb-2 block">Your
+                                Message</label>
+                            <textarea id="messageInput" rows="5" placeholder="Tell me about your project or needs..."
+                                class="w-full bg-charcoal-200/50 border border-white/[0.04] rounded-xl px-4 py-3.5 text-sm text-white placeholder-zinc-700 focus:outline-none focus:border-gold-400/30 transition-colors resize-none"></textarea>
+                        </div>
+
+                        <button type="submit"
+                            class="btn-shine w-full bg-gold-400 hover:bg-gold-300 text-black text-[11px] font-bold uppercase tracking-[0.2em] px-8 py-4 rounded-xl transition-all duration-300 flex items-center justify-center gap-3"
+                            style="box-shadow: 0 0 30px rgba(212,175,55,0.25);">
+                            Send Message
+                            <span class="iconify" data-icon="lucide:send" data-width="16"></span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== FOOTER ====== -->
+    <footer class="relative border-t border-gold-400/10 py-16 bg-charcoal-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+                <!-- Brand -->
+                <div>
+                    <a href="#hero" class="font-oswald text-2xl font-600 tracking-tight flex items-center gap-2 mb-4">
+                        <span class="w-2.5 h-2.5 rounded-full bg-gold-400 inline-block"></span>
+                        <span class="text-gold-gradient">IAN</span><span class="text-zinc-600">.</span><span
+                            class="text-white">MUTETHIA</span>
+                    </a>
+                    <p class="text-zinc-600 text-sm font-light leading-relaxed max-w-xs">Premium Virtual Assistant &
+                        Digital Support Specialist. Helping businesses stay organized, efficient, and growth-focused.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <span class="text-[10px] font-mono uppercase tracking-[0.3em] text-zinc-600 mb-4 block">Quick
+                        Links</span>
+                    <div class="space-y-2.5">
+                        <a href="#about"
+                            class="block text-sm text-zinc-500 hover:text-gold-400 transition-colors font-light">About</a>
+                        <a href="#services"
+                            class="block text-sm text-zinc-500 hover:text-gold-400 transition-colors font-light">Services</a>
+                        <a href="#skills"
+                            class="block text-sm text-zinc-500 hover:text-gold-400 transition-colors font-light">Skills</a>
+                        <a href="#experience"
+                            class="block text-sm text-zinc-500 hover:text-gold-400 transition-colors font-light">Experience</a>
+                        <a href="#contact"
+                            class="block text-sm text-zinc-500 hover:text-gold-400 transition-colors font-light">Contact</a>
+                    </div>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <span class="text-[10px] font-mono uppercase tracking-[0.3em] text-zinc-600 mb-4 block">Get in
+                        Touch</span>
+                    <div class="space-y-2.5">
+                        <a href="mailto:ianmuliuki1@gmail.com"
+                            class="block text-sm text-zinc-500 hover:text-gold-400 transition-colors font-light">ianmuliuki1@gmail.com</a>
+                        <a href="tel:0769293535"
+                            class="block text-sm text-zinc-500 hover:text-gold-400 transition-colors font-light">0769
+                            293 535</a>
+                        <a href="https://wa.me/254769293535"
+                            class="block text-sm text-zinc-500 hover:text-gold-400 transition-colors font-light">WhatsApp</a>
+                    </div>
+                    <div class="flex items-center gap-3 mt-6">
+                        <a href="#"
+                            class="w-9 h-9 rounded-full border border-gold-400/15 flex items-center justify-center text-zinc-600 hover:text-gold-400 hover:border-gold-400/40 transition-all duration-300">
+                            <span class="iconify" data-icon="lucide:linkedin" data-width="14"></span>
+                        </a>
+                        <a href="#"
+                            class="w-9 h-9 rounded-full border border-gold-400/15 flex items-center justify-center text-zinc-600 hover:text-gold-400 hover:border-gold-400/40 transition-all duration-300">
+                            <span class="iconify" data-icon="lucide:twitter" data-width="14"></span>
+                        </a>
+                        <a href="#"
+                            class="w-9 h-9 rounded-full border border-gold-400/15 flex items-center justify-center text-zinc-600 hover:text-gold-400 hover:border-gold-400/40 transition-all duration-300">
+                            <span class="iconify" data-icon="lucide:instagram" data-width="14"></span>
+                        </a>
+                        <a href="#"
+                            class="w-9 h-9 rounded-full border border-gold-400/15 flex items-center justify-center text-zinc-600 hover:text-gold-400 hover:border-gold-400/40 transition-all duration-300">
+                            <span class="iconify" data-icon="lucide:facebook" data-width="14"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gold-400/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+                <p class="text-zinc-700 text-xs font-light">© 2025 Ian Mutethia. All rights reserved.</p>
+                <div class="flex items-center gap-2 text-zinc-700 text-xs">
+                    <span>Crafted with</span>
+                    <span class="iconify text-gold-400" data-icon="lucide:heart" data-width="11"></span>
+                    <span>and</span>
+                    <span class="iconify text-gold-400" data-icon="lucide:gem" data-width="11"></span>
+                </div>
+                <button onclick="window.scrollTo({top:0,behavior:'smooth'})"
+                    class="group flex items-center gap-2 text-zinc-700 hover:text-gold-400 text-xs uppercase tracking-[0.2em] transition-colors font-light">
+                    Back to top
+                    <span class="iconify group-hover:-translate-y-1 transition-transform duration-300"
+                        data-icon="lucide:arrow-up" data-width="12"></span>
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ====== JAVASCRIPT ====== -->
+    <script>
+        // ====== LOADING SCREEN ======
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loader').classList.add('hidden');
+            }, 1500);
+        });
+
+        // ====== SCROLL PROGRESS ======
+        const scrollProgress = document.getElementById('scrollProgress');
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            scrollProgress.style.width = scrollPercent + '%';
+        });
+
+        // ====== NAVIGATION ======
+        const navbar = document.getElementById('navbar');
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        let menuOpen = false;
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 60) {
+                navbar.style.backgroundColor = 'rgba(0,0,0,0.85)';
+                navbar.style.backdropFilter = 'blur(20px)';
+                navbar.style.borderBottomColor = 'rgba(212,175,55,0.06)';
+            } else {
+                navbar.style.backgroundColor = 'transparent';
+                navbar.style.backdropFilter = 'none';
+                navbar.style.borderBottomColor = 'transparent';
+            }
+        });
+
+        menuBtn.addEventListener('click', () => {
+            menuOpen = !menuOpen;
+            const l1 = document.getElementById('menuLine1');
+            const l2 = document.getElementById('menuLine2');
+            const l3 = document.getElementById('menuLine3');
+
+            if (menuOpen) {
+                mobileMenu.style.transform = 'translateX(0)';
+                l1.style.transform = 'rotate(45deg) translateY(5px)';
+                l2.style.opacity = '0';
+                l3.style.transform = 'rotate(-45deg) translateY(-5px)';
+                l3.style.width = '24px';
+            } else {
+                mobileMenu.style.transform = 'translateX(100%)';
+                l1.style.transform = 'none';
+                l2.style.opacity = '1';
+                l3.style.transform = 'none';
+                l3.style.width = '16px';
+            }
+        });
+
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                menuOpen = false;
+                mobileMenu.style.transform = 'translateX(100%)';
+                document.getElementById('menuLine1').style.transform = 'none';
+                document.getElementById('menuLine2').style.opacity = '1';
+                document.getElementById('menuLine3').style.transform = 'none';
+                document.getElementById('menuLine3').style.width = '16px';
+            });
+        });
+
+        // ====== ACTIVE NAV LINK ======
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link-gold');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 120;
+                if (window.scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('text-white');
+                link.classList.add('text-zinc-400');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('text-white');
+                    link.classList.remove('text-zinc-400');
+                }
+            });
+        });
+
+        // ====== SCROLL REVEAL ANIMATIONS ======
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => revealObserver.observe(el));
+
+        // ====== SKILL BAR ANIMATION ======
+        const skillObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const bars = entry.target.querySelectorAll('.skill-bar-fill');
+                    bars.forEach(bar => {
+                        const width = bar.getAttribute('data-width');
+                        setTimeout(() => {
+                            bar.style.width = width;
+                        }, 300);
+                    });
+                }
+            });
+        }, { threshold: 0.2 });
+
+        document.querySelectorAll('.luxury-card').forEach(card => {
+            if (card.querySelector('.skill-bar-fill')) {
+                skillObserver.observe(card);
+            }
+        });
+
+        // ====== PARTICLES ======
+        const particlesContainer = document.getElementById('particles');
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.bottom = '-10px';
+            particle.style.width = (Math.random() * 3 + 1) + 'px';
+            particle.style.height = particle.style.width;
+            particle.style.opacity = Math.random() * 0.5 + 0.1;
+            const duration = Math.random() * 15 + 10;
+            particle.style.animation = `particle-float ${duration}s linear infinite`;
+            particle.style.animationDelay = Math.random() * 10 + 's';
+            particlesContainer.appendChild(particle);
+        }
+
+        // Create 30 particles
+        for (let i = 0; i < 30; i++) {
+            createParticle();
+        }
+
+        // ====== TOAST ======
+        const toast = document.getElementById('toast');
+        function showToast(message, type = 'success') {
+            toast.textContent = message;
+            toast.style.background = type === 'success' ? '#141414' : '#1a0505';
+            toast.style.borderColor = type === 'success' ? 'rgba(212,175,55,0.3)' : 'rgba(220,38,38,0.3)';
+            toast.style.color = type === 'success' ? '#D4AF37' : '#ef4444';
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 3500);
+        }
+
+        // ====== CONTACT FORM ======
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('nameInput').value.trim();
+            const email = document.getElementById('emailInput').value.trim();
+            const message = document.getElementById('messageInput').value.trim();
+
+            if (!name || !email || !message) {
+                showToast('Please fill in all required fields.', 'error');
+                return;
+            }
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                showToast('Please enter a valid email address.', 'error');
+                return;
+            }
+
+            const btn = contactForm.querySelector('button[type="submit"]');
+            const originalHTML = btn.innerHTML;
+            btn.innerHTML = '<span class="iconify animate-spin" data-icon="lucide:loader-2" data-width="16"></span> Sending...';
+            btn.disabled = true;
+
+            setTimeout(() => {
+                showToast('✨ Message sent successfully! Ian will get back to you soon.');
+                contactForm.reset();
+                btn.innerHTML = originalHTML;
+                btn.disabled = false;
+            }, 1800);
+        });
+
+        // ====== SMOOTH SCROLL OFFSET ======
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 80;
+                    const bodyRect = document.body.getBoundingClientRect().top;
+                    const elementRect = target.getBoundingClientRect().top;
+                    const elementPosition = elementRect - bodyRect;
+                    const offsetPosition = elementPosition - offset;
+                    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>
