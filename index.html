@@ -560,9 +560,6 @@
     <!-- Toast -->
     <div class="toast-msg bg-charcoal-300 text-white" id="toast"></div>
 
-    <!-- Particles Container -->
-    <div id="particles" class="fixed inset-0 pointer-events-none z-0 overflow-hidden"></div>
-
     <!-- Navigation -->
     <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b border-transparent">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
@@ -742,6 +739,8 @@
             </div>
         </div>
 
+        <!-- Particles Container -->
+    <div id="particles" class="absolute inset-0 pointer-events-none z-0 overflow-hidden"></div>
         <!-- Scroll indicator -->
         <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
             style="animation: fadeInUp 1s ease 1.2s both;">
@@ -2098,7 +2097,8 @@
         }
 
         // Create 30 particles
-        for (let i = 0; i < 30; i++) {
+        const particleCount = window.innerWidth < 768 ? 12 : 30;
+        for (let i = 0; i < particleCount; i++) {
             createParticle();
         }
 
