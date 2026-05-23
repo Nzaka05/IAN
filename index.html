@@ -121,6 +121,14 @@
             -webkit-backdrop-filter: blur(40px);
         }
 
+        @media (max-width: 1023px) {
+            .glass-heavy {
+                backdrop-filter: none;
+                -webkit-backdrop-filter: none;
+                background: rgba(0, 0, 0, 0.97) !important;
+            }
+        }
+
         /* Scroll Progress */
         #scrollProgress {
             position: fixed;
@@ -468,6 +476,10 @@
             color: #D4AF37 !important;
         }
 
+        .tool-icon-wrap:hover .tool-logo {
+            filter: brightness(0) saturate(100%) invert(72%) sepia(55%) saturate(400%) hue-rotate(5deg) brightness(95%) contrast(90%);
+        }
+
         /* Timeline */
         .timeline-dot {
             position: relative;
@@ -543,6 +555,17 @@
             height: 1px;
             background: linear-gradient(90deg, transparent, #D4AF37, transparent);
         }
+
+        @media (max-width: 767px) {
+            .glow-orb {
+                animation: none !important;
+                opacity: 0.04;
+            }
+            .portrait-spin {
+                animation: none !important;
+                opacity: 0.15;
+            }
+        }
     </style>
 </head>
 
@@ -559,6 +582,9 @@
 
     <!-- Toast -->
     <div class="toast-msg bg-charcoal-300 text-white" id="toast"></div>
+
+    <!-- Particles Container -->
+    <div id="particles" class="fixed inset-0 pointer-events-none z-0 overflow-hidden"></div>
 
     <!-- Navigation -->
     <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b border-transparent">
@@ -634,9 +660,9 @@
         </div>
 
         <!-- Gold glow orbs -->
-        <div class="absolute top-1/4 left-[5%] w-72 h-72 bg-gold-400/5 rounded-full blur-[100px]"
+        <div class="glow-orb absolute top-1/4 left-[5%] w-72 h-72 bg-gold-400/5 rounded-full blur-[100px]"
             style="animation: glow-pulse 4s ease-in-out infinite;"></div>
-        <div class="absolute bottom-1/4 right-[10%] w-96 h-96 bg-gold-400/3 rounded-full blur-[120px]"
+        <div class="glow-orb absolute bottom-1/4 right-[10%] w-96 h-96 bg-gold-400/3 rounded-full blur-[120px]"
             style="animation: glow-pulse 5s ease-in-out 1s infinite;"></div>
 
         <!-- Content -->
@@ -711,7 +737,7 @@
                             style="animation: glow-pulse 3s ease-in-out infinite;"></div>
 
                         <!-- Spinning border -->
-                        <div class="absolute -inset-2 rounded-full"
+                        <div class="portrait-spin absolute -inset-2 rounded-full"
                             style="background: conic-gradient(from 0deg, #D4AF37, transparent, #D4AF37, transparent, #D4AF37); animation: spin 12s linear infinite; opacity: 0.4;">
                         </div>
 
@@ -739,8 +765,6 @@
             </div>
         </div>
 
-        <!-- Particles Container -->
-    <div id="particles" class="absolute inset-0 pointer-events-none z-0 overflow-hidden"></div>
         <!-- Scroll indicator -->
         <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
             style="animation: fadeInUp 1s ease 1.2s both;">
@@ -1182,95 +1206,79 @@
             </div>
 
             <div class="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-7 gap-4">
-                <!-- Tool items -->
-                <div
-                    class="tool-icon-wrap bg-charcoal-400/40 border border-white/[0.04] rounded-2xl p-5 flex flex-col items-center justify-center gap-3 cursor-default">
-                    <span class="iconify tool-icon text-zinc-500 transition-colors duration-300"
-                        data-icon="logos:google-icon" data-width="28"></span>
+                <!-- Google Workspace -->
+                <div class="tool-icon-wrap bg-charcoal-400/40 border border-white/[0.04] rounded-2xl p-5 flex flex-col items-center justify-center gap-3 cursor-default">
+                    <img src="https://cdn.simpleicons.org/google/6b7280" width="28" height="28" alt="Google" class="tool-logo transition-all duration-300">
                     <span class="text-[9px] uppercase tracking-wider text-zinc-600 font-medium">Google Workspace</span>
                 </div>
-                <div
-                    class="tool-icon-wrap bg-charcoal-400/40 border border-white/[0.04] rounded-2xl p-5 flex flex-col items-center justify-center gap-3 cursor-default">
-                    <span class="iconify tool-icon text-zinc-500 transition-colors duration-300"
-                        data-icon="logos:gmail-icon" data-width="28"></span>
+                <!-- Gmail -->
+                <div class="tool-icon-wrap bg-charcoal-400/40 border border-white/[0.04] rounded-2xl p-5 flex flex-col items-center justify-center gap-3 cursor-default">
+                    <img src="https://cdn.simpleicons.org/gmail/6b7280" width="28" height="28" alt="Gmail" class="tool-logo transition-all duration-300">
                     <span class="text-[9px] uppercase tracking-wider text-zinc-600 font-medium">Gmail</span>
                 </div>
-                <div
-                    class="tool-icon-wrap bg-charcoal-400/40 border border-white/[0.04] rounded-2xl p-5 flex flex-col items-center justify-center gap-3 cursor-default">
-                    <span class="iconify tool-icon text-zinc-500 transition-colors duration-300"
-                        data-icon="lucide:calendar" data-width="28"></span>
+                <!-- Google Calendar -->
+                <div class="tool-icon-wrap bg-charcoal-400/40 border border-white/[0.04] rounded-2xl p-5 flex flex-col items-center justify-center gap-3 cursor-default">
+                    <img src="https://cdn.simpleicons.org/googlecalendar/6b7280" width="28" height="28" alt="Google Calendar" class="tool-logo transition-all duration-300">
                     <span class="text-[9px] uppercase tracking-wider text-zinc-600 font-medium">Google Calendar</span>
                 </div>
-                <div
-                    class="tool-icon-wrap bg-charcoal-400/40 border border-white/[0.04] rounded-2xl p-5 flex flex-col items-center justify-center gap-3 cursor-default">
-                    <span class="iconify tool-icon text-zinc-500 transition-colors duration-300"
-                        data-icon="logos:google-docs" data-width="28"></span>
+                <!-- Google Docs -->
+                <div class="tool-icon-wrap bg-charcoal-400/40 border border-white/[0.04] rounded-2xl p-5 flex flex-col items-center justify-center gap-3 cursor-default">
+                    <img src="https://cdn.simpleicons.org/googledocs/6b7280" width="28" height="28" alt="Google Docs" class="tool-logo transition-all duration-300">
                     <span class="text-[9px] uppercase tracking-wider text-zinc-600 font-medium">Google Docs</span>
                 </div>
-                <div
-                    class="tool-icon-wrap bg-charcoal-400/40 border border-white/[0.04] rounded-2xl p-5 flex flex-col items-center justify-center gap-3 cursor-default">
-                    <span class="iconify tool-icon text-zinc-500 transition-colors duration-300"
-                        data-icon="logos:google-sheets" data-width="28"></span>
+                <!-- Google Sheets -->
+                <div class="tool-icon-wrap bg-charcoal-400/40 border border-white/[0.04] rounded-2xl p-5 flex flex-col items-center justify-center gap-3 cursor-default">
+                    <img src="https://cdn.simpleicons.org/googlesheets/6b7280" width="28" height="28" alt="Google Sheets" class="tool-logo transition-all duration-300">
                     <span class="text-[9px] uppercase tracking-wider text-zinc-600 font-medium">Google Sheets</span>
                 </div>
-                <div
-                    class="tool-icon-wrap bg-charcoal-400/40 border border-white/[0.04] rounded-2xl p-5 flex flex-col items-center justify-center gap-3 cursor-default">
-                    <span class="iconify tool-icon text-zinc-500 transition-colors duration-300" data-icon="logos:canva"
-                        data-width="28"></span>
+                <!-- Canva -->
+                <div class="tool-icon-wrap bg-charcoal-400/40 border border-white/[0.04] rounded-2xl p-5 flex flex-col items-center justify-center gap-3 cursor-default">
+                    <img src="https://cdn.simpleicons.org/canva/6b7280" width="28" height="28" alt="Canva" class="tool-logo transition-all duration-300">
                     <span class="text-[9px] uppercase tracking-wider text-zinc-600 font-medium">Canva</span>
                 </div>
-                <div
-                    class="tool-icon-wrap bg-charcoal-400/40 border border-white/[0.04] rounded-2xl p-5 flex flex-col items-center justify-center gap-3 cursor-default">
-                    <span class="iconify tool-icon text-zinc-500 transition-colors duration-300"
-                        data-icon="logos:trello" data-width="28"></span>
+                <!-- Trello -->
+                <div class="tool-icon-wrap bg-charcoal-400/40 border border-white/[0.04] rounded-2xl p-5 flex flex-col items-center justify-center gap-3 cursor-default">
+                    <img src="https://cdn.simpleicons.org/trello/6b7280" width="28" height="28" alt="Trello" class="tool-logo transition-all duration-300">
                     <span class="text-[9px] uppercase tracking-wider text-zinc-600 font-medium">Trello</span>
                 </div>
-                <div
-                    class="tool-icon-wrap bg-charcoal-400/40 border border-white/[0.04] rounded-2xl p-5 flex flex-col items-center justify-center gap-3 cursor-default">
-                    <span class="iconify tool-icon text-zinc-500 transition-colors duration-300"
-                        data-icon="logos:slack-icon" data-width="28"></span>
+                <!-- Slack -->
+                <div class="tool-icon-wrap bg-charcoal-400/40 border border-white/[0.04] rounded-2xl p-5 flex flex-col items-center justify-center gap-3 cursor-default">
+                    <img src="https://cdn.simpleicons.org/slack/6b7280" width="28" height="28" alt="Slack" class="tool-logo transition-all duration-300">
                     <span class="text-[9px] uppercase tracking-wider text-zinc-600 font-medium">Slack</span>
                 </div>
-                <div
-                    class="tool-icon-wrap bg-charcoal-400/40 border border-white/[0.04] rounded-2xl p-5 flex flex-col items-center justify-center gap-3 cursor-default">
-                    <span class="iconify tool-icon text-zinc-500 transition-colors duration-300" data-icon="logos:asana"
-                        data-width="28"></span>
+                <!-- Asana -->
+                <div class="tool-icon-wrap bg-charcoal-400/40 border border-white/[0.04] rounded-2xl p-5 flex flex-col items-center justify-center gap-3 cursor-default">
+                    <img src="https://cdn.simpleicons.org/asana/6b7280" width="28" height="28" alt="Asana" class="tool-logo transition-all duration-300">
                     <span class="text-[9px] uppercase tracking-wider text-zinc-600 font-medium">Asana</span>
                 </div>
-                <div
-                    class="tool-icon-wrap bg-charcoal-400/40 border border-white/[0.04] rounded-2xl p-5 flex flex-col items-center justify-center gap-3 cursor-default">
-                    <span class="iconify tool-icon text-zinc-500 transition-colors duration-300"
-                        data-icon="lucide:layout-dashboard" data-width="28"></span>
+                <!-- Meta Suite -->
+                <div class="tool-icon-wrap bg-charcoal-400/40 border border-white/[0.04] rounded-2xl p-5 flex flex-col items-center justify-center gap-3 cursor-default">
+                    <img src="https://cdn.simpleicons.org/meta/6b7280" width="28" height="28" alt="Meta" class="tool-logo transition-all duration-300">
                     <span class="text-[9px] uppercase tracking-wider text-zinc-600 font-medium">Meta Suite</span>
                 </div>
-                <div
-                    class="tool-icon-wrap bg-charcoal-400/40 border border-white/[0.04] rounded-2xl p-5 flex flex-col items-center justify-center gap-3 cursor-default">
-                    <span class="iconify tool-icon text-zinc-500 transition-colors duration-300"
-                        data-icon="logos:hubspot" data-width="28"></span>
+                <!-- HubSpot -->
+                <div class="tool-icon-wrap bg-charcoal-400/40 border border-white/[0.04] rounded-2xl p-5 flex flex-col items-center justify-center gap-3 cursor-default">
+                    <img src="https://cdn.simpleicons.org/hubspot/6b7280" width="28" height="28" alt="HubSpot" class="tool-logo transition-all duration-300">
                     <span class="text-[9px] uppercase tracking-wider text-zinc-600 font-medium">HubSpot</span>
                 </div>
-                <div
-                    class="tool-icon-wrap bg-charcoal-400/40 border border-white/[0.04] rounded-2xl p-5 flex flex-col items-center justify-center gap-3 cursor-default">
-                    <span class="iconify tool-icon text-zinc-500 transition-colors duration-300"
-                        data-icon="logos:notion-icon" data-width="28"></span>
+                <!-- Notion -->
+                <div class="tool-icon-wrap bg-charcoal-400/40 border border-white/[0.04] rounded-2xl p-5 flex flex-col items-center justify-center gap-3 cursor-default">
+                    <img src="https://cdn.simpleicons.org/notion/6b7280" width="28" height="28" alt="Notion" class="tool-logo transition-all duration-300">
                     <span class="text-[9px] uppercase tracking-wider text-zinc-600 font-medium">Notion</span>
                 </div>
-                <div
-                    class="tool-icon-wrap bg-charcoal-400/40 border border-white/[0.04] rounded-2xl p-5 flex flex-col items-center justify-center gap-3 cursor-default">
-                    <span class="iconify tool-icon text-zinc-500 transition-colors duration-300"
-                        data-icon="logos:microsoft-icon" data-width="28"></span>
+                <!-- MS Office -->
+                <div class="tool-icon-wrap bg-charcoal-400/40 border border-white/[0.04] rounded-2xl p-5 flex flex-col items-center justify-center gap-3 cursor-default">
+                    <img src="https://cdn.simpleicons.org/microsoftoffice/6b7280" width="28" height="28" alt="MS Office" class="tool-logo transition-all duration-300">
                     <span class="text-[9px] uppercase tracking-wider text-zinc-600 font-medium">MS Office</span>
                 </div>
-                <div
-                    class="tool-icon-wrap bg-charcoal-400/40 border border-white/[0.04] rounded-2xl p-5 flex flex-col items-center justify-center gap-3 cursor-default">
-                    <span class="iconify tool-icon text-zinc-500 transition-colors duration-300"
-                        data-icon="lucide:scissors" data-width="28"></span>
+                <!-- CapCut -->
+                <div class="tool-icon-wrap bg-charcoal-400/40 border border-white/[0.04] rounded-2xl p-5 flex flex-col items-center justify-center gap-3 cursor-default">
+                    <img src="https://cdn.simpleicons.org/capcut/6b7280" width="28" height="28" alt="CapCut" class="tool-logo transition-all duration-300">
                     <span class="text-[9px] uppercase tracking-wider text-zinc-600 font-medium">CapCut</span>
                 </div>
-                <div
-                    class="tool-icon-wrap bg-charcoal-400/40 border border-white/[0.04] rounded-2xl p-5 flex flex-col items-center justify-center gap-3 cursor-default">
-                    <span class="iconify tool-icon text-zinc-500 transition-colors duration-300"
-                        data-icon="lucide:database" data-width="28"></span>
+                <!-- CRM Platforms -->
+                <div class="tool-icon-wrap bg-charcoal-400/40 border border-white/[0.04] rounded-2xl p-5 flex flex-col items-center justify-center gap-3 cursor-default">
+                    <span class="iconify text-zinc-500 transition-colors duration-300" data-icon="lucide:database" data-width="28"></span>
                     <span class="text-[9px] uppercase tracking-wider text-zinc-600 font-medium">CRM Platforms</span>
                 </div>
             </div>
@@ -2097,8 +2105,7 @@
         }
 
         // Create 30 particles
-        const particleCount = window.innerWidth < 768 ? 12 : 30;
-        for (let i = 0; i < particleCount; i++) {
+        for (let i = 0; i < 30; i++) {
             createParticle();
         }
 
